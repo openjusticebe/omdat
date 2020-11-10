@@ -14,7 +14,7 @@
         <small class="text-muted text-center">Developed by <em>
           <a href="https://openjustice.be/">OpenJustice.be</a> with ❤️</em>
           | {{ new Date().getFullYear() }} - now
-          <br>  Licensed with GPLv3. Source code available at <a href="https://github.com/openjusticebe/ecli-frontend">GitHub</a>
+          <br><a href="https://raw.githubusercontent.com/openjusticebe/ecli-frontend/main/LICENSE">Licensed with GPLv3</a>. Source code available at <a href="https://github.com/openjusticebe/ecli-frontend">GitHub</a>
         </small>
       </div>
     </footer>
