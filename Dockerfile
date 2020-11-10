@@ -12,16 +12,16 @@ RUN apk add git
 # Set environment variables
 ENV NODE_ENV production
 ENV NUXT_HOST=0.0.0.0
-ENV NUXT_PORT=3000
+ENV NUXT_PORT=80
 
 # copy the app, note .dockerignore
-COPY . /usr/src/app/
+RUN git clone http://github.com/openjusticebe/ecli-frontend.git /usr/src/app/
 RUN npm install
 
 # build necessary, even if no static files are needed,
 # since it builds the server as well
 RUN npm run build
 
-EXPOSE 3000
+EXPOSE 80
 
 CMD [ "npm", "start" ]

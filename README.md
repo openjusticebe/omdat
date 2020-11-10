@@ -1,4 +1,4 @@
-# ecli-frontend
+# ECLI frontend
 
 Developed by OpenJustice.be with ❤️.
 Licensed with GPLv3.
@@ -21,7 +21,10 @@ $ yarn generate
 ```
 
 ## Build Setup with Docker
-```
+```bash
+# build image
 docker build -t ecli-frontend .
-docker run -it -p 3000:3000 ecli-frontend
+
+# ... and launch server
+docker run -it -p 3000:80 ecli-frontend
 ```
