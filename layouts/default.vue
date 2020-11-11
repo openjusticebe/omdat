@@ -11,10 +11,10 @@
 
     <footer class="footer">
       <div class="container">
-        <small class="text-muted text-center">Developed by <em>
-          <a href="https://openjustice.be/">OpenJustice.be</a> with ❤️</em>
-          | {{ new Date().getFullYear() }} - now
-          <br><a href="https://raw.githubusercontent.com/openjusticebe/ecli-frontend/main/LICENSE">Licensed with GPLv3</a>. Source code available at <a href="https://github.com/openjusticebe/ecli-frontend">GitHub</a>
+        <small class="text-muted text-center">Developed with ❤️ by <em>
+          <a href="https://openjustice.be/">OpenJustice.be</a></em>
+          | {{ new Date().getFullYear() }} - now.
+          <br>Source code available at <a href="https://github.com openjusticebe/ecli-frontend">GitHub</a> — Licensed with <a href="https://raw.githubusercontent.com/openjusticebe/ecli-frontend/main/LICENSE">GPLv3</a>.
         </small>
       </div>
     </footer>

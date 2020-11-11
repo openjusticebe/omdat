@@ -1,8 +1,12 @@
 <template>
   <div class="container">
-        {{ api_results.status.api_version }}
-        {{ api_results.status.api_counter }}
-        {{ api_results.links }}
+    <code>
+      {{ api_results.status.api_version }}
+      {{ api_results.status.api_counter }}
+      {{ api_results.links }}
+      {{ api_results.status.uptime }}
+
+    </code>
     <table class="table table-transparent">
       <thead>
         <tr>
@@ -15,7 +19,6 @@
       <tr v-for="(item, index) in api_results.collection" :key="index">
         <th scope="row">{{ index }}</th>
         <td>
-          <a :href="item.href">{{ item.href }}</a>
 
           <ul class="list-unstyled">
             <li><strong>FR</strong> {{ item.name }}</li>
@@ -23,15 +26,24 @@
             <li><strong>DE</strong> {{ item.name }}</li>
           </ul>
 
+          <button type="button" name="button" class="btn btn-sm btn-info">Select</button>
+  <!-- <NuxtLink :to="item.href">Home page</NuxtLink> -->
+
+          <!-- <Nuxt :nuxt-child-key="someKey" /> -->
+
         </td>
         <td class="small">
           <ul class="list-unstyled">
             <li>Document count: {{ Math.floor(Math.random() * 10000) }} (fake)</li>
-            <li>Last updated at</li>
+            <li>Last updated at 2020-01-01 (fake)</li>
           </ul>
         </td>
         <td>
+
           <small>Description du {{ item.name }}</small>
+          <br>
+          Link: <a :href="item.href">{{ item.href }}</a>
+
         </td>
       </tr>
     </table>
@@ -48,6 +60,7 @@ export default {
 
   data () {
     return {
+      // api_url: 'https://ecli.openjustice.be/ECLI/',
       dataReady: false,
       api_results: {}
     }
@@ -66,6 +79,5 @@ export default {
   position: relative;
   opacity: 0.97;
   background: transparent;
-  z-index: -1;
 }
 </style>
