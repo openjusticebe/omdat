@@ -1,7 +1,10 @@
 # ECLI frontend
 
-Developed by OpenJustice.be with ❤️.
-Licensed with GPLv3.
+🚧 Under (heavy) construction. Please come back in a few nanoseconds. 🚧
+
+Frontend of ECLI API : https://github.com/openjusticebe/ecli
+
+Developed by OpenJustice.be with ❤️. Licensed with GPLv3.
 
 ## Build Setup without Docker
 

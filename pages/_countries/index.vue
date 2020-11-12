@@ -1,16 +1,7 @@
 <template>
-  <div class="container">
-    <!-- <code>
-      {{ api_results.status.api_version }}
-      {{ api_results.status.api_counter }}
-      {{ api_results.links }}
-      {{ api_results.status.uptime }}
-      <nuxt-link to="/" class="btn btn-primary btn-sm">back</nuxt-link>
-      <hr>
-      {{ this.$route.path }}
-    </code> -->
-    <button @click="refresh" class="btn btn-primary btn-sm">Refresh</button>
-{{ this.$axios.defaults.baseURL }}
+  <div class="">
+    <h1>{{ $route.params.countries }}</h1>
+
     <table class="table table-transparent">
       <thead>
         <tr>
@@ -32,8 +23,6 @@
           </ul>
 
 
-
-
         </td>
         <td class="small">
           <ul class="list-unstyled">
@@ -50,6 +39,7 @@
         </td>
       </tr>
     </table>
+
   </div>
 </template>
 
@@ -57,14 +47,11 @@
 export default {
 
   async asyncData ({ $axios }) {
-    const { data } = await $axios.get('')
+    const { data } = await $axios.get('https://ecli.openjustice.be/BE/')
+    console.log(data);
     return { api_results: data }
   },
-  methods: {
-    refresh() {
-      this.$nuxt.refresh()
-    }
-  },
+
   data () {
     return {
       dataReady: false,
@@ -72,18 +59,5 @@ export default {
     }
   }
 
-}
+};
 </script>
-
-<style>
-
-.table-transparent {
-  width: 100%;
-  background-color: #D8F0DA;
-  border: 1px;
-  min-width: 100%;
-  position: relative;
-  opacity: 0.97;
-  background: transparent;
-}
-</style>

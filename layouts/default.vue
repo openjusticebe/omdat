@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <div class="background-image">
     <div>
-      <h1 class="title">
-        ECLI-frontend <sup class="status"><em>beta</em></sup>
-        <img src="https://openjustice.be/wp-content/uploads/2020/10/cropped-Open-Justice.png" class="float-right" width="220px">
-      </h1>
+      <NuxtLink to="/">
+        <h1 class="title">
+          ECLI-frontend <sup class="status"><em>beta</em></sup>
+          <img src="https://openjustice.be/wp-content/uploads/2020/10/cropped-Open-Justice.png" class="float-right" width="220px">
+        </h1>
+      </NuxtLink>
     </div>
 
     <Nuxt />
@@ -23,8 +25,11 @@
 
 <style>
 
+
+
 html {
-  font-family: sans-serif;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -37,13 +42,17 @@ html {
 }
 
 body {
+  margin-bottom: 60px; /* Margin bottom by footer height */
+
+}
+
+.background-image {
   background-color: #fff;
   background-image: url("/background.png");
   background-position: right bottom;
   background-repeat: no-repeat;
-  margin-bottom: 60px; /* Margin bottom by footer height */
-
 }
+
 
 .footer {
   position: absolute;

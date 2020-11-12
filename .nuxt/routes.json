@@ -1,9 +1,37 @@
 [
   {
+    "name": "about",
+    "path": "/about",
+    "component": "/Users/martin/Documents/GitHub/ecli-frontend/pages/about.vue",
+    "chunkName": "pages/about",
+    "_name": "_80f7f2e4"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "/Users/martin/Documents/GitHub/ecli-frontend/pages/index.vue",
     "chunkName": "pages/index",
     "_name": "_41883d5a"
+  },
+  {
+    "name": "countries",
+    "path": "/:countries",
+    "component": "/Users/martin/Documents/GitHub/ecli-frontend/pages/_countries/index.vue",
+    "chunkName": "pages/_countries/index",
+    "_name": "_9c6b78f2"
+  },
+  {
+    "name": "countries-courts",
+    "path": "/:countries/:courts",
+    "component": "/Users/martin/Documents/GitHub/ecli-frontend/pages/_countries/_courts/index.vue",
+    "chunkName": "pages/_countries/_courts/index",
+    "_name": "_6647b842"
+  },
+  {
+    "name": "countries-courts-years-documents-ref",
+    "path": "/:countries/:courts/:years/:documents?/:ref?",
+    "component": "/Users/martin/Documents/GitHub/ecli-frontend/pages/_countries/_courts/_years/_documents/_ref.vue",
+    "chunkName": "pages/_countries/_courts/_years/_documents/_ref",
+    "_name": "_45925875"
   }
 ]

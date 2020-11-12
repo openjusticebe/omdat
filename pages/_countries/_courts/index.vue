@@ -1,16 +1,6 @@
 <template>
   <div class="container">
-    <!-- <code>
-      {{ api_results.status.api_version }}
-      {{ api_results.status.api_counter }}
-      {{ api_results.links }}
-      {{ api_results.status.uptime }}
-      <nuxt-link to="/" class="btn btn-primary btn-sm">back</nuxt-link>
-      <hr>
-      {{ this.$route.path }}
-    </code> -->
-    <button @click="refresh" class="btn btn-primary btn-sm">Refresh</button>
-{{ this.$axios.defaults.baseURL }}
+
     <table class="table table-transparent">
       <thead>
         <tr>
@@ -67,6 +57,7 @@ export default {
   },
   data () {
     return {
+      // api_url: 'https://ecli.openjustice.be/',
       dataReady: false,
       api_results: {}
     }
