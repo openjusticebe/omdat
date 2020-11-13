@@ -9,7 +9,7 @@ const _41883d5a = () => interopDefault(import('../pages/index.vue' /* webpackChu
 const _9c6b78f2 = () => interopDefault(import('../pages/_countries/index.vue' /* webpackChunkName: "pages/_countries/index" */))
 const _6647b842 = () => interopDefault(import('../pages/_countries/_courts/index.vue' /* webpackChunkName: "pages/_countries/_courts/index" */))
 const _0244ca1d = () => interopDefault(import('../pages/_countries/_courts/_years/index.vue' /* webpackChunkName: "pages/_countries/_courts/_years/index" */))
-const _45925875 = () => interopDefault(import('../pages/_countries/_courts/_years/_documents/_ref.vue' /* webpackChunkName: "pages/_countries/_courts/_years/_documents/_ref" */))
+const _65375b81 = () => interopDefault(import('../pages/_countries/_courts/_years/_documents/index.vue' /* webpackChunkName: "pages/_countries/_courts/_years/_documents/index" */))
 
 // TODO: remove in Nuxt 3
 const emptyFn = () => {}
@@ -52,9 +52,9 @@ export const routerOptions = {
     component: _0244ca1d,
     name: "countries-courts-years"
   }, {
-    path: "/:countries/:courts/:years/:documents/:ref?",
-    component: _45925875,
-    name: "countries-courts-years-documents-ref"
+    path: "/:countries/:courts/:years/:documents",
+    component: _65375b81,
+    name: "countries-courts-years-documents"
   }],
 
   fallback: false

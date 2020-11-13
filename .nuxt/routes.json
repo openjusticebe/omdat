@@ -42,10 +42,10 @@
     "_name": "_0244ca1d"
   },
   {
-    "name": "countries-courts-years-documents-ref",
-    "path": "/:countries/:courts/:years/:documents/:ref?",
-    "component": "/Users/martin/Documents/GitHub/ecli-frontend/pages/_countries/_courts/_years/_documents/_ref.vue",
-    "chunkName": "pages/_countries/_courts/_years/_documents/_ref",
-    "_name": "_45925875"
+    "name": "countries-courts-years-documents",
+    "path": "/:countries/:courts/:years/:documents",
+    "component": "/Users/martin/Documents/GitHub/ecli-frontend/pages/_countries/_courts/_years/_documents/index.vue",
+    "chunkName": "pages/_countries/_courts/_years/_documents/index",
+    "_name": "_65375b81"
   }
 ]

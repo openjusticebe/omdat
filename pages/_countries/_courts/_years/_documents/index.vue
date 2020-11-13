@@ -2,6 +2,10 @@
   <div class="container">
     <h1>{{ $route.params.courts }} {{ $route.params.countries }} {{ $route.params.years }}</h1>
 
+<code>
+  {{ api_results }}
+</code>
+
     <table class="table table-transparent">
       <thead>
         <tr>
@@ -48,7 +52,7 @@
 export default {
 
   async asyncData({ params }) {
-    const api_results = await fetch(`https://ecli.openjustice.be/${params.countries}/${params.courts}/${params.years}/${params.ref}`,
+    const api_results = await fetch(`https://ecli.openjustice.be/${params.countries}/${params.courts}/${params.years}/${params.documents}`,
       {
         headers: {
         'Accept': 'application/json',
