@@ -2,7 +2,10 @@
   <div class="container">
     <h1>{{ $route.params.countries }} > {{ $route.params.courts }} </h1>
 
-    <table class="table table-transparent">
+    <p v-if="$fetchState.pending">Fetching data...</p>
+    <p v-else-if="$fetchState.error">Error while fetching posts</p>
+
+    <table class="table table-transparent" v-else>
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -15,11 +18,6 @@
         <th scope="row">{{ index }}</th>
         <td>
           <nuxt-link :to="item.href">{{ item.href }}</nuxt-link>
-
-
-
-
-
 
         </td>
         <td class="small">
@@ -42,28 +40,26 @@
 
 <script>
 export default {
-
   async asyncData({ params }) {
     const api_results = await fetch(`https://ecli.openjustice.be/${params.countries}/${params.courts}`,
       {
         headers: {
-        'Accept': 'application/json',
-      },
-    }
-  ).then(res => res.json())
-  dataReady: true;
+          'Accept': 'application/json',
+        },
+      }
+    ).then(res => res.json())
+    return { api_results }
+  },
 
-  return { api_results }
+  fetch() {
   },
-  methods: {
-    refresh() {
-      this.$nuxt.refresh()
-    }
-  },
+  // methods: {
+  //   refresh() {
+  //     this.$nuxt.refresh()
+  //   }
+  // },
   data () {
     return {
-      // api_url: 'https://ecli.openjustice.be/',
-      dataReady: false,
       api_results: {}
     }
   }

@@ -1,8 +1,12 @@
 <template>
   <div class="container">
-    <h1>{{ $route.params.countries }} {{ $route.params.courts }}  {{ $route.params.years }}</h1>
+    <h1>{{ $route.params.countries }} <span class="text-muted">></span> {{ $route.params.courts }} > {{ $route.params.years }}</h1>
 
-    <table class="table table-transparent">
+    <p v-if="$fetchState.pending">Fetching data...</p>
+
+    <p v-else-if="$fetchState.error">Error while fetching posts</p>
+
+    <table class="table table-transparent" v-else>
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -16,12 +20,9 @@
         <td>
           <nuxt-link :to="item.href">{{ item.href }}</nuxt-link>
 
-          </td>
-        <td class="small">
-          <ul class="list-unstyled">
-            <li>Document count: {{ Math.floor(Math.random() * 10000) }} (fake)</li>
-            <li>Last updated at 2020-01-01 (fake)</li>
-          </ul>
+        </td>
+        <td>
+
         </td>
         <td>
 
@@ -42,11 +43,11 @@ export default {
     const api_results = await fetch(`https://ecli.openjustice.be/${params.countries}/${params.courts}/${params.years}`,
       {
         headers: {
-        'Accept': 'application/json',
-      },
-    }
-  ).then(res => res.json())
-  return { api_results }
+          'Accept': 'application/json',
+        },
+      }
+    ).then(res => res.json())
+    return { api_results }
   },
   methods: {
     refresh() {
@@ -59,6 +60,9 @@ export default {
       dataReady: false,
       api_results: {}
     }
+  },
+
+  fetch() {
   }
 
 }
