@@ -1,11 +1,12 @@
 <template>
   <div class="container">
+    <h1>{{ $route.params.countries }} > {{ $route.params.courts }} </h1>
 
     <table class="table table-transparent">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Courts and tribunals</th>
+          <th scope="col">Year of {{ $route.params.courts }}</th>
           <th scope="col">Data</th>
           <th scope="col">Description</th>
         </tr>
@@ -15,11 +16,7 @@
         <td>
           <nuxt-link :to="item.href">{{ item.href }}</nuxt-link>
 
-          <ul class="list-unstyled">
-            <li><strong>FR</strong> {{ item.name }}</li>
-            <li><strong>NL</strong> {{ item.name }}</li>
-            <li><strong>DE</strong> {{ item.name }}</li>
-          </ul>
+
 
 
 
@@ -46,9 +43,17 @@
 <script>
 export default {
 
-  async asyncData ({ $axios }) {
-    const { data } = await $axios.get('')
-    return { api_results: data }
+  async asyncData({ params }) {
+    const api_results = await fetch(`https://ecli.openjustice.be/${params.countries}/${params.courts}`,
+      {
+        headers: {
+        'Accept': 'application/json',
+      },
+    }
+  ).then(res => res.json())
+  dataReady: true;
+
+  return { api_results }
   },
   methods: {
     refresh() {

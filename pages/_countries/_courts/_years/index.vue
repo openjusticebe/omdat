@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <h1>{{ $route.params.courts }} {{ $route.params.countries }} {{ $route.params.years }}</h1>
+    <h1>{{ $route.params.countries }} {{ $route.params.courts }}  {{ $route.params.years }}</h1>
 
     <table class="table table-transparent">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Courts and tribunals</th>
+          <th scope="col">Legal Document of {{ $route.params.courts }} {{ $route.params.years }}</th>
           <th scope="col">Data</th>
           <th scope="col">Description</th>
         </tr>
@@ -16,16 +16,7 @@
         <td>
           <nuxt-link :to="item.href">{{ item.href }}</nuxt-link>
 
-          <ul class="list-unstyled">
-            <li><strong>FR</strong> {{ item.name }}</li>
-            <li><strong>NL</strong> {{ item.name }}</li>
-            <li><strong>DE</strong> {{ item.name }}</li>
-          </ul>
-
-
-
-
-        </td>
+          </td>
         <td class="small">
           <ul class="list-unstyled">
             <li>Document count: {{ Math.floor(Math.random() * 10000) }} (fake)</li>
@@ -48,7 +39,7 @@
 export default {
 
   async asyncData({ params }) {
-    const api_results = await fetch(`https://ecli.openjustice.be/${params.countries}/${params.courts}/${params.years}/${params.ref}`,
+    const api_results = await fetch(`https://ecli.openjustice.be/${params.countries}/${params.courts}/${params.years}`,
       {
         headers: {
         'Accept': 'application/json',
@@ -64,6 +55,7 @@ export default {
   },
   data () {
     return {
+      // api_url: 'https://ecli.openjustice.be/',
       dataReady: false,
       api_results: {}
     }

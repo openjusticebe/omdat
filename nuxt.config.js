@@ -26,18 +26,30 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-  ],
+    // ['@nuxtjs/eslint-module', { /* module options */ }]
+    ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/apollo',
   ],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: process.env.API_URL
+    baseURL: process.env.REST_API_URL
   },
+
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: process.env.GQL_API_URL,
+        httpEndpoint: 'https://rickandmortyapi.com/graphql/',
+      }
+    }
+  },
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
   }

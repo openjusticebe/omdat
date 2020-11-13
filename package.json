@@ -11,12 +11,17 @@
     "lint": "yarn lint:js"
   },
   "dependencies": {
+    "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/eslint-module": "^3.0.0",
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.17.3",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "graphql-tag": "^2.11.0",
+    "nuxt": "^2.14.6",
+    "vue-resource": "^1.5.1"
   },
   "devDependencies": {
+    "eslint": "^7.13.0"
   }
 }

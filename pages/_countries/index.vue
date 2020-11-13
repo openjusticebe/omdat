@@ -44,20 +44,36 @@
 </template>
 
 <script>
+
 export default {
 
-  async asyncData ({ $axios }) {
-    const { data } = await $axios.get('https://ecli.openjustice.be/BE/')
-    console.log(data);
-    return { api_results: data }
-  },
-
-  data () {
-    return {
-      dataReady: false,
-      api_results: {}
+  async asyncData({ params }) {
+    const api_results = await fetch(`https://ecli.openjustice.be/${params.countries}/`,
+      {
+        headers: {
+        'Content-Type': 'application/json'
+      },
     }
+  ).then(res => res.json())
+  return { api_results }
+},
+
+data () {
+  return {
+    dataReady: false,
+    api_results: {},
   }
+},
+// mounted: {
+//   async loadUsers () {
+//     let data = await this.$axios.$get('https://ecli.openjustice.be/BE/');
+//     this.api_results = data
+//   }
+//
+// },
+methods: {
+
+}
 
 };
 </script>
