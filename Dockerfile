@@ -1,6 +1,9 @@
 # Dockerfile
 FROM node:11.13.0-alpine
 
+#  This quick hack invalidates the cache
+ADD https://www.google.com /time.now
+
 # create destination directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
