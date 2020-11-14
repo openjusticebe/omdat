@@ -2,15 +2,15 @@
 
   <div class="">
 
-    <h2>{{ character.id }} {{ character.name }}</h2>
-<button class="btn btn-primary" @click="characterId = characterId + 1">
+    <h2>{{ country.id }} {{ country.name }}</h2>
+<button class="btn btn-primary" @click="countryId = countryId + 1">
   change user
 </button>
     <ul>
-      <li v-for="character in characters.results" :key="character.id">
-        {{ character }}
+      <li v-for="country in countries.results" :key="country.id">
+        {{ country }}
       </li>
-      {{ characters }}
+      {{ countries }}
     </ul>
   </div>
 
@@ -23,32 +23,30 @@ export default {
 
   data () {
     return {
-      characterId: 1
+      countryId: 1
     }
   },
   apollo: {
-    characters: gql`
-    query getCharacters {
-      characters {
+    countries: gql`
+    query getCountries {
+      countries {
         results {
           id
-          name
         }
       }
     }
     `,
-    character: {
+    country: {
       query: gql`
-      query getCharacter ($id: ID!) {
-        character (id: $id) {
+      query getCountry ($id: ID!) {
+        country (id: $id) {
           id
-          name
         }
       }
       `,
       variables() {
         return {
-          id: this.characterId
+          id: this.countryId
         }
       }
     }

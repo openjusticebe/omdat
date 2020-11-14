@@ -1,11 +1,10 @@
 <template>
   <div class="container">
-    <h1>{{ $route.params.countries }} > {{ $route.params.courts }} </h1>
+    <h1>{{ $route.params.countries }} > {{ $route.params.courts }}</h1>
 
-    <p v-if="$fetchState.pending">Fetching data...</p>
-    <p v-else-if="$fetchState.error">Error while fetching posts</p>
+    <button @click="$fetch">Refresh Data</button>
 
-    <table class="table table-transparent" v-else>
+    <table class="table table-transparent">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -14,11 +13,12 @@
           <th scope="col">Description</th>
         </tr>
       </thead>
+      <tbody>
+
       <tr v-for="(item, index) in api_results.collection" :key="index">
         <th scope="row">{{ index }}</th>
         <td>
           <nuxt-link :to="item.href">{{ item.href }}</nuxt-link>
-
         </td>
         <td class="small">
           <ul class="list-unstyled">
@@ -34,35 +34,36 @@
 
         </td>
       </tr>
+    </tbody>
+
     </table>
   </div>
 </template>
 
 <script>
 export default {
-  async asyncData({ params }) {
-    const api_results = await fetch(`https://ecli.openjustice.be/${params.countries}/${params.courts}`,
+
+  async fetch() {
+    const api_results = await fetch(`https://ecli.openjustice.be/${this.$route.params.countries}/${this.$route.params.courts}/`,
       {
         headers: {
           'Accept': 'application/json',
         },
       }
-    ).then(res => res.json())
-    return { api_results }
+    ).then((res) => res.json())
+    this.api_results = api_results
   },
 
-  fetch() {
-  },
-  // methods: {
-  //   refresh() {
-  //     this.$nuxt.refresh()
-  //   }
-  // },
   data () {
     return {
-      api_results: {}
+      api_results: {},
     }
-  }
+  },
+  methods: {
+    refresh() {
+      this.$fetch()
+    }
+  },
 
 }
 </script>
@@ -71,7 +72,7 @@ export default {
 
 .table-transparent {
   width: 100%;
-  background-color: #D8F0DA;
+  background: white;
   border: 1px;
   min-width: 100%;
   position: relative;

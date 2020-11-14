@@ -61,7 +61,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"ECLI-frontend - OpenJustice.be project","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":" OpenJustice.be a pour mission de fournir un accès libre, gratuit et de qualité (ouvert et documenté) au décisions de justice et à la jurisprudence."}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
+    head: {"title":"ECLI - OpenJustice.be","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"The goal of OpenJustice.be organisation is to provide libre, free and quality access (open and documented) to case law in Belgium."}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"icon","type":"image\u002Fpng","href":"\u002Ffavicon.png"}],"style":[],"script":[]},
 
     router,
     nuxt: {

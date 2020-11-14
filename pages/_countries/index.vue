@@ -47,30 +47,23 @@
 
 export default {
 
-  async asyncData({ params }) {
-    const api_results = await fetch(`https://ecli.openjustice.be/${params.countries}/`,
+  async fetch() {
+    const api_results = await fetch(`https://ecli.openjustice.be/${this.$route.params.countries}/`,
       {
         headers: {
-        'Content-Type': 'application/json'
-      },
-    }
-  ).then(res => res.json())
-  return { api_results }
-},
+          'Accept': 'application/json',
+        },
+      }
+    ).then((res) => res.json())
+    this.api_results = api_results
+  },
 
 data () {
   return {
-    dataReady: false,
     api_results: {},
   }
 },
-// mounted: {
-//   async loadUsers () {
-//     let data = await this.$axios.$get('https://ecli.openjustice.be/BE/');
-//     this.api_results = data
-//   }
-//
-// },
+
 methods: {
 
 }

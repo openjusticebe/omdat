@@ -1,74 +1,45 @@
 <template>
   <div class="container">
-    <h1>{{ $route.params.courts }} {{ $route.params.countries }} {{ $route.params.years }}</h1>
+    <h1>{{ $route.params.courts }} {{ $route.params.countries }} {{ $route.params.years }} {{ $route.params.documents }}</h1>
 
-<code>
-  {{ api_results }}
-</code>
+<div v-if="api_results.content">
 
-    <table class="table table-transparent">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Courts and tribunals</th>
-          <th scope="col">Data</th>
-          <th scope="col">Description</th>
-        </tr>
-      </thead>
-      <tr v-for="(item, index) in api_results.collection" :key="index">
-        <th scope="row">{{ index }}</th>
-        <td>
-          <nuxt-link :to="item.href">{{ item.href }}</nuxt-link>
+    <img :src="api_results.content.data.logo" alt="" width="200px">
 
-          <ul class="list-unstyled">
-            <li><strong>FR</strong> {{ item.name }}</li>
-            <li><strong>NL</strong> {{ item.name }}</li>
-            <li><strong>DE</strong> {{ item.name }}</li>
-          </ul>
-
-
-
-
-        </td>
-        <td class="small">
-          <ul class="list-unstyled">
-            <li>Document count: {{ Math.floor(Math.random() * 10000) }} (fake)</li>
-            <li>Last updated at 2020-01-01 (fake)</li>
-          </ul>
-        </td>
-        <td>
-
-          <small>Description du {{ item.name }}</small>
-          <br>
-          Link: <a :href="item.href">{{ item.href }}</a>
-
-        </td>
-      </tr>
-    </table>
+    <div class="list-group list-group-horizontal" id="list-tab" role="tablist">
+      <a v-for="link in api_results.content.links"
+      class="list-group-item">
+      {{ link.rel }}
+    </a>
   </div>
+
+  <code>
+    <pre>
+      {{ api_results.content.data }}
+      {{ api_results.content.links }}
+    </pre>
+  </code>
+</div>
+
+</div>
 </template>
 
 <script>
 export default {
 
-  async asyncData({ params }) {
-    const api_results = await fetch(`https://ecli.openjustice.be/${params.countries}/${params.courts}/${params.years}/${params.documents}`,
+  async fetch() {
+    const api_results = await fetch(`https://ecli.openjustice.be/${this.$route.params.countries}/${this.$route.params.courts}/${this.$route.params.years}/${this.$route.params.documents}/`,
       {
         headers: {
-        'Accept': 'application/json',
-      },
-    }
-  ).then(res => res.json())
-  return { api_results }
+          'Accept': 'application/json',
+        },
+      }
+    ).then((res) => res.json())
+    this.api_results = api_results
   },
-  methods: {
-    refresh() {
-      this.$nuxt.refresh()
-    }
-  },
+
   data () {
     return {
-      dataReady: false,
       api_results: {}
     }
   }

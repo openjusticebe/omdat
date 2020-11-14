@@ -1,14 +1,16 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'ECLI-frontend - OpenJustice.be project',
+    title: 'ECLI - OpenJustice.be',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: ' OpenJustice.be a pour mission de fournir un accès libre, gratuit et de qualité (ouvert et documenté) au décisions de justice et à la jurisprudence.' }
+      { hid: 'description', name: 'description', content: 'The goal of OpenJustice.be organisation is to provide libre, free and quality access (open and documented) to case law in Belgium.' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+
     ]
   },
 
@@ -45,7 +47,7 @@ export default {
     clientConfigs: {
       default: {
         httpEndpoint: process.env.GQL_API_URL,
-        httpEndpoint: 'https://rickandmortyapi.com/graphql/',
+        // httpEndpoint: 'https://rickandmortyapi.com/graphql/',
       }
     }
   },
