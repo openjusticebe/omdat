@@ -1,15 +1,26 @@
 <template>
   <div class="container">
     <div class="card" style="width: 18rem;" v-for="(item, index) in api_results.collection" :key="index">
+
+
+              <code v-highlight class="javascript">{{ $fetchState }}</code>
+
       <div class="card-body">
-        <h5 class="card-title">Belgim</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Case laws from Belgium</h6>
-        <nuxt-link :to="item.href" title="Dbenbenn and others, Public domain, via Wikimedia Commons">
-          <img width="200" alt="Flag of Belgium" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/512px-Flag_of_Belgium.svg.png"></nuxt-link>
+
+
+
+<button type="button" name="button" class="btn btn-primary">primary</button>
+<button type="button" name="button" class="btn btn-secondary">secondary</button>
+
+        <h5 class="card-title">{{ item.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Case laws from {{ item.name }}</h6>
+        <nuxt-link :to="item.href" title="">
+          <img width="200" alt="Flag of Belgium" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/512px-Flag_of_Belgium.svg.png">
+        </nuxt-link>
 
           <nuxt-link :to="item.href">{{ item.href }}</nuxt-link>
 
-          <a href="/BE" class="btn btn-primary">Case laws</a>
+          <nuxt-link :to="item.href" class="btn btn-primary">Case laws</nuxt-link>
         </div>
       </div>
 
@@ -19,23 +30,17 @@
 
   <script>
   export default {
-
-    async asyncData({ params }) {
+    async fetch() {
       const api_results = await fetch(`https://ecli.openjustice.be/`,
         {
           headers: {
             'Accept': 'application/json',
           },
         }
-      ).then(res => res.json())
-      dataReady: true;
-      return { api_results }
+      ).then((res) => res.json())
+      this.api_results = api_results
     },
 
-    // async asyncData ({ $axios }) {
-    //   const { data } = await $axios.get('')
-    //   return { api_results: data }
-    // },
     methods: {
       refresh() {
         this.$nuxt.refresh()
@@ -43,7 +48,6 @@
     },
     data () {
       return {
-        dataReady: false,
         api_results: {}
       }
     }

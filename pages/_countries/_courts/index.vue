@@ -3,6 +3,7 @@
     <h1>{{ $route.params.countries }} > {{ $route.params.courts }}</h1>
 
     <button @click="$fetch">Refresh Data</button>
+    <Pending v-if="$fetchState.pending" />
 
     <table class="table table-transparent">
       <thead>
@@ -44,7 +45,7 @@
 export default {
 
   async fetch() {
-    const api_results = await fetch(`https://ecli.openjustice.be/${this.$route.params.countries}/${this.$route.params.courts}/`,
+    const api_results = await fetch(`https://ecli.openjustice.be${this.$route.fullPath}`,
       {
         headers: {
           'Accept': 'application/json',

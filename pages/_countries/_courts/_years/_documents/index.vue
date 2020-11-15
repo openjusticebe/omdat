@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <h1>{{ $route.params.courts }} {{ $route.params.countries }} {{ $route.params.years }} {{ $route.params.documents }}</h1>
+    <h1>{{ $route.params.countries }} {{ $route.params.courts }} {{ $route.params.years }} {{ $route.params.documents }}</h1>
+
+    <Pending v-if="$fetchState.pending" />
+
 
 <div v-if="api_results.content">
 
@@ -13,11 +16,9 @@
     </a>
   </div>
 
-  <code>
-    <pre>
+  <code v-highlight class="javascript">
       {{ api_results.content.data }}
       {{ api_results.content.links }}
-    </pre>
   </code>
 </div>
 
@@ -28,7 +29,7 @@
 export default {
 
   async fetch() {
-    const api_results = await fetch(`https://ecli.openjustice.be/${this.$route.params.countries}/${this.$route.params.courts}/${this.$route.params.years}/${this.$route.params.documents}/`,
+    const api_results = await fetch(`https://ecli.openjustice.be${this.$route.fullPath}`,
       {
         headers: {
           'Accept': 'application/json',

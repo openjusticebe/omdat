@@ -16,7 +16,8 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
-  ],
+    '@/assets/scss/main.scss'
+    ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
@@ -29,15 +30,25 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     // ['@nuxtjs/eslint-module', { /* module options */ }]
-    ],
+  ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
+
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/style-resources',
     '@nuxtjs/axios',
     '@nuxtjs/apollo',
+    'nuxt-highlightjs',
   ],
+  bootstrapVue: {
+    bootstrapCSS: false,
+    bootstrapVueCSS: false
+  },
+  styleResources: {
+    scss: '@/assets/scss/_variables.scss'
+  },
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
     baseURL: process.env.REST_API_URL
@@ -54,5 +65,9 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-  }
+    extend (config, ctx) {
+          "@nuxtjs"
+    }
+  },
+
 }

@@ -1,7 +1,7 @@
 # Dockerfile
 FROM node:11.13.0-alpine
 
-#  This quick hack invalidates the cache
+# this quick hack invalidates the cache
 ADD https://www.google.com /time.now
 
 # create destination directory
@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 RUN apk update && apk upgrade
 RUN apk add git
 
-# Set environment variables
+# set environment variables
 ENV NODE_ENV production
 ENV NUXT_HOST=0.0.0.0
 ENV NUXT_PORT=80

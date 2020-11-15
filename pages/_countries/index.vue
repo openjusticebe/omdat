@@ -1,8 +1,11 @@
 <template>
-  <div class="">
+  <div class="container">
     <h1>{{ $route.params.countries }}</h1>
 
-    <table class="table table-transparent">
+    <Pending v-if="$fetchState.pending" />
+
+
+    <table class="table table-transparent" v-if="!$fetchState.pending">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -17,6 +20,7 @@
           <nuxt-link :to="item.href">{{ item.href }}</nuxt-link>
 
           <ul class="list-unstyled">
+            <li><strong>EN</strong> {{ item.name }}</li>
             <li><strong>FR</strong> {{ item.name }}</li>
             <li><strong>NL</strong> {{ item.name }}</li>
             <li><strong>DE</strong> {{ item.name }}</li>
@@ -26,8 +30,8 @@
         </td>
         <td class="small">
           <ul class="list-unstyled">
-            <li>Document count: {{ Math.floor(Math.random() * 10000) }} (fake)</li>
-            <li>Last updated at 2020-01-01 (fake)</li>
+            <!-- <li>Document count: {{ Math.floor(Math.random() * 10000) }} (fake)</li>
+            <li>Last updated at 2020-01-01 (fake)</li> -->
           </ul>
         </td>
         <td>
@@ -48,7 +52,7 @@
 export default {
 
   async fetch() {
-    const api_results = await fetch(`https://ecli.openjustice.be/${this.$route.params.countries}/`,
+    const api_results = await fetch(`https://ecli.openjustice.be${this.$route.fullPath}`,
       {
         headers: {
           'Accept': 'application/json',

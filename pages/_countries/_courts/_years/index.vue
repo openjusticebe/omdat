@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <h1>{{ $route.params.countries }} <span class="text-muted">></span> {{ $route.params.courts }} > {{ $route.params.years }}</h1>
+    <h1>{{ $route.params.countries }} <span class="text-muted">></span> {{ $route.params.courts }} <span class="text-muted">></span> {{ $route.params.years }}</h1>
+
+    <Pending v-if="$fetchState.pending" />
+
 
     <table class="table table-transparent">
       <thead>
@@ -35,7 +38,7 @@
 <script>
 export default {
   async fetch() {
-    const api_results = await fetch(`https://ecli.openjustice.be/${this.$route.params.countries}/${this.$route.params.courts}/${this.$route.params.years}/`,
+    const api_results = await fetch(`https://ecli.openjustice.be${this.$route.fullPath}`,
       {
         headers: {
           'Accept': 'application/json',

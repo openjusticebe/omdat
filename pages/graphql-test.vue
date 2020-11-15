@@ -3,15 +3,10 @@
   <div class="">
 
     <h2>{{ country.id }} {{ country.name }}</h2>
-<button class="btn btn-primary" @click="countryId = countryId + 1">
-  change user
-</button>
-    <ul>
-      <li v-for="country in countries.results" :key="country.id">
-        {{ country }}
-      </li>
-      {{ countries }}
-    </ul>
+    <button class="btn btn-primary" @click="countryId = countryId + 1">
+      change countryId
+    </button>
+
   </div>
 
 </template>
