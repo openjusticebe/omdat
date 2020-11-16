@@ -2,12 +2,9 @@
   <div class="container">
     <div class="card" style="width: 18rem;" v-for="(item, index) in api_results.collection" :key="index">
 
-
               <code v-highlight class="javascript">{{ $fetchState }}</code>
 
       <div class="card-body">
-
-
 
 <button type="button" name="button" class="btn btn-primary">primary</button>
 <button type="button" name="button" class="btn btn-secondary">secondary</button>
@@ -24,36 +21,35 @@
         </div>
       </div>
 
-
     </div>
   </template>
 
-  <script>
-  export default {
-    async fetch() {
-      const api_results = await fetch(`https://ecli.openjustice.be/`,
-        {
-          headers: {
-            'Accept': 'application/json',
-          },
+<script>
+export default {
+  async fetch () {
+    const api_results = await fetch('https://ecli.openjustice.be/',
+      {
+        headers: {
+          Accept: 'application/json'
         }
-      ).then((res) => res.json())
-      this.api_results = api_results
-    },
+      }
+    ).then((res) => res.json())
+    this.api_results = api_results
+  },
 
-    methods: {
-      refresh() {
-        this.$nuxt.refresh()
-      }
-    },
-    data () {
-      return {
-        api_results: {}
-      }
+  methods: {
+    refresh () {
+      this.$nuxt.refresh()
     }
-
+  },
+  data () {
+    return {
+      api_results: {}
+    }
   }
-  </script>
+
+}
+</script>
 
   <style>
 

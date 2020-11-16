@@ -44,27 +44,27 @@
 <script>
 export default {
 
-  async fetch() {
-    const api_results = await fetch(`https://ecli.openjustice.be${this.$route.fullPath}`,
+  async fetch () {
+    const apiResults = await fetch(`https://ecli.openjustice.be${this.$route.fullPath}`,
       {
         headers: {
-          'Accept': 'application/json',
-        },
+          Accept: 'application/json'
+        }
       }
     ).then((res) => res.json())
-    this.api_results = api_results
+    this.api_results = apiResults
   },
 
   data () {
     return {
-      api_results: {},
+      api_results: {}
     }
   },
   methods: {
-    refresh() {
+    refresh () {
       this.$fetch()
     }
-  },
+  }
 
 }
 </script>

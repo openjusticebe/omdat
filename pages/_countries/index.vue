@@ -4,7 +4,6 @@
 
     <Pending v-if="$fetchState.pending" />
 
-
     <table class="table table-transparent" v-if="!$fetchState.pending">
       <thead>
         <tr>
@@ -25,7 +24,6 @@
             <li><strong>NL</strong> {{ item.name }}</li>
             <li><strong>DE</strong> {{ item.name }}</li>
           </ul>
-
 
         </td>
         <td class="small">
@@ -51,26 +49,26 @@
 
 export default {
 
-  async fetch() {
-    const api_results = await fetch(`https://ecli.openjustice.be${this.$route.fullPath}`,
+  async fetch () {
+    const apiResults = await fetch(`https://ecli.openjustice.be${this.$route.fullPath}`,
       {
         headers: {
-          'Accept': 'application/json',
-        },
+          Accept: 'application/json'
+        }
       }
     ).then((res) => res.json())
-    this.api_results = api_results
+    this.api_results = apiResults
   },
 
-data () {
-  return {
-    api_results: {},
-  }
-},
+  data () {
+    return {
+      api_results: {}
+    }
+  },
 
-methods: {
+  methods: {
+
+  }
 
 }
-
-};
 </script>

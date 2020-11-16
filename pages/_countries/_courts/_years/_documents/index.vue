@@ -4,14 +4,14 @@
 
     <Pending v-if="$fetchState.pending" />
 
-
 <div v-if="api_results.content">
 
     <img :src="api_results.content.data.logo" alt="" width="200px">
 
     <div class="list-group list-group-horizontal" id="list-tab" role="tablist">
-      <a v-for="link in api_results.content.links"
-      class="list-group-item">
+      <a v-for="(link, index) in api_results.content.links"
+      class="list-group-item"
+      :key="index">
       {{ link.rel }}
     </a>
   </div>
@@ -28,15 +28,16 @@
 <script>
 export default {
 
-  async fetch() {
-    const api_results = await fetch(`https://ecli.openjustice.be${this.$route.fullPath}`,
+  async fetch () {
+    const apiResults = await fetch(`https://ecli.openjustice.be${this.$route.fullPath}`,
       {
         headers: {
-          'Accept': 'application/json',
-        },
+          Accept: 'application/json'
+        }
       }
     ).then((res) => res.json())
-    this.api_results = api_results
+    console.log(process.env.BASE_URL)
+    this.api_results = apiResults
   },
 
   data () {

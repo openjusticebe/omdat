@@ -39,7 +39,7 @@ export default {
         }
       }
       `,
-      variables() {
+      variables () {
         return {
           id: this.countryId
         }

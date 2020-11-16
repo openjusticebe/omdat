@@ -17,7 +17,7 @@ export default {
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '@/assets/scss/main.scss'
-    ],
+  ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
@@ -29,7 +29,6 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    // ['@nuxtjs/eslint-module', { /* module options */ }]
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -40,7 +39,7 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/axios',
     '@nuxtjs/apollo',
-    'nuxt-highlightjs',
+    'nuxt-highlightjs'
   ],
   bootstrapVue: {
     bootstrapCSS: false,
@@ -57,7 +56,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.GQL_API_URL,
+        httpEndpoint: process.env.GQL_API_URL
         // httpEndpoint: 'https://rickandmortyapi.com/graphql/',
       }
     }
@@ -66,8 +65,8 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     extend (config, ctx) {
-          "@nuxtjs"
+      '@nuxtjs'
     }
-  },
+  }
 
 }
