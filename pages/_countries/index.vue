@@ -71,12 +71,13 @@
 
 <script>
 export default {
+  
   data() {
     return {
       api_results: {},
     }
   },
-  async fetch() {
+   async fetch() {
     const apiResults = await fetch(
       `https://ecli.openjustice.be${this.$route.fullPath}`,
       {
@@ -87,6 +88,7 @@ export default {
     ).then((res) => res.json())
     this.api_results = apiResults
   },
+ 
 
   methods: {},
 }

@@ -1,5 +1,5 @@
 # Dockerfile
-FROM node:11.13.0-alpine
+FROM node:15.2.1-alpine3.10
 
 # this quick hack invalidates the cache
 ADD https://www.google.com /time.now

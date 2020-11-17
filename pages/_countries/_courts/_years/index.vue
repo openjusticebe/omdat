@@ -57,8 +57,7 @@ export default {
       api_results: {},
     }
   },
-  
-  async fetch() {
+   async fetch() {
     const apiResults = await fetch(
       `https://ecli.openjustice.be${this.$route.fullPath}`,
       {
@@ -69,6 +68,8 @@ export default {
     ).then((res) => res.json())
     this.api_results = apiResults
   },
+  
+ 
       activated() {
       // Call fetch again if last fetch more than 3000 secs ago
       if (this.$fetchState.timestamp <= Date.now() - 3000000) {
