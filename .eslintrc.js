@@ -1,19 +1,26 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
-    es2021: true
+    node: true,
+  },
+  parserOptions: {
+    parser: 'babel-eslint',
+    // parser: '@typescript-eslint/parser'
   },
   extends: [
-    'plugin:vue/essential',
-    'standard'
+    'plugin:vue/recommended',
+    // '@nuxtjs/eslint-config-typescript',
+    'eslint:recommended',
+    // 'prettier/vue',
+    // 'plugin:prettier/recommended',
   ],
-  parserOptions: {
-    ecmaVersion: 12,
-    sourceType: 'module'
-  },
-  plugins: [
-    'vue'
-  ],
+  // required to lint *.vue files
+  plugins: ['vue'],
+  // add your custom rules here
   rules: {
-  }
+    semi: [2, 'never'],
+    'no-console': 'off',
+    'vue/max-attributes-per-line': 'off',
+  },
 }
