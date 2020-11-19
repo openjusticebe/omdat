@@ -52,35 +52,34 @@
 
 <script>
 export default {
-  data() {
-    return {
-      api_results: {},
-    }
-  },
-   async fetch() {
+  async fetch () {
     const apiResults = await fetch(
       `https://ecli.openjustice.be${this.$route.fullPath}`,
       {
         headers: {
-          Accept: 'application/json',
-        },
+          Accept: 'application/json'
+        }
       }
-    ).then((res) => res.json())
+    ).then(res => res.json())
     this.api_results = apiResults
   },
-  
- 
-      activated() {
-      // Call fetch again if last fetch more than 3000 secs ago
-      if (this.$fetchState.timestamp <= Date.now() - 3000000) {
-        this.$fetch()
-      }
-    },
-  methods: {
-    refresh() {
-      this.$nuxt.refresh()
-    },
+  data () {
+    return {
+      api_results: {}
+    }
   },
+
+  activated () {
+    // Call fetch again if last fetch more than 3000 secs ago
+    if (this.$fetchState.timestamp <= Date.now() - 3000000) {
+      this.$fetch()
+    }
+  },
+  methods: {
+    refresh () {
+      this.$nuxt.refresh()
+    }
+  }
 }
 </script>
 

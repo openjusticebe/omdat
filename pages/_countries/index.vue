@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>{{ $route.params.countries }}</h1>
-    
+
     <Breadcrump />
 
     <Pending v-if="$fetchState.pending" />
@@ -71,25 +71,24 @@
 
 <script>
 export default {
-  
-  data() {
-    return {
-      api_results: {},
-    }
-  },
-   async fetch() {
+  async fetch () {
     const apiResults = await fetch(
       `https://ecli.openjustice.be${this.$route.fullPath}`,
       {
         headers: {
-          Accept: 'application/json',
-        },
+          Accept: 'application/json'
+        }
       }
-    ).then((res) => res.json())
+    ).then(res => res.json())
     this.api_results = apiResults
   },
- 
 
-  methods: {},
+  data () {
+    return {
+      api_results: {}
+    }
+  },
+
+  methods: {}
 }
 </script>

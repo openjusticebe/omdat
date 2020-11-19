@@ -55,30 +55,29 @@
 
 <script>
 export default {
-  
-  data() {
-    return {
-      api_results: {},
-    }
-  },
-   async fetch() {
+  async fetch () {
     const apiResults = await fetch(
       `https://ecli.openjustice.be${this.$route.fullPath}`,
       {
         headers: {
-          Accept: 'application/json',
-        },
+          Accept: 'application/json'
+        }
       }
-    ).then((res) => res.json())
+    ).then(res => res.json())
     this.api_results = apiResults
   },
 
- 
-  methods: {
-    refresh() {
-      this.$fetch()
-    },
+  data () {
+    return {
+      api_results: {}
+    }
   },
+
+  methods: {
+    refresh () {
+      this.$fetch()
+    }
+  }
 }
 </script>
 

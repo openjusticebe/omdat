@@ -1,7 +1,7 @@
 # Dockerfile
-FROM node:15.2.1-alpine3.10
+FROM node:10-alpine
 
-# this quick hack invalidates the cache
+# quick hack invalidates the cache
 ADD https://www.google.com /time.now
 
 # create destination directory
@@ -19,12 +19,9 @@ ENV NUXT_PORT=80
 
 # copy the app, note .dockerignore
 RUN git clone http://github.com/openjusticebe/ecli-frontend.git /usr/src/app/
-RUN npm install
 
-# build necessary, even if no static files are needed,
-# since it builds the server as well
-RUN npm run build
+RUN yarn install
+RUN yarn build
+RUN yarn start
 
 EXPOSE 80
-
-CMD [ "npm", "start" ]

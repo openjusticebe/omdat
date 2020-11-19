@@ -1,17 +1,16 @@
 <template>
   <div class="container">
     <Breadcrump />
-  
     <div
       v-for="(item, index) in api_results.collection"
       :key="index"
       class="card"
     >
       <div class="media">
-        <img          
+        <img
           alt="Flag of Belgium"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/512px-Flag_of_Belgium.svg.png"
-          class="mr-3" 
+          class="mr-3"
           width="100"
         >
         <div class="media-body">
@@ -25,7 +24,6 @@
         </nuxt-link>
       </div>
 
-
       <div class="card-body" />
     </div>
   </div>
@@ -33,26 +31,25 @@
 
 <script>
 export default {
-  data() {
-    return {
-      api_results: {},
-    }
-  },
-  async fetch() {
+  async fetch () {
     const ApiResults = await fetch('https://ecli.openjustice.be/', {
       headers: {
-        Accept: 'application/json',
-      },
-    }).then((res) => res.json())
+        Accept: 'application/json'
+      }
+    }).then(res => res.json())
     this.api_results = ApiResults
   },
-
+  data () {
+    return {
+      api_results: {}
+    }
+  },
 
   methods: {
-    refresh() {
+    refresh () {
       this.$nuxt.refresh()
-    },
-  },
+    }
+  }
 }
 </script>
 

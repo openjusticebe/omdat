@@ -2,7 +2,7 @@
   <div>
     <!-- <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li v-for="(crumb, index) in crumbs" 
+        <li v-for="(crumb, index) in crumbs"
             :key="index"
             class="breadcrumb-item"
         >
