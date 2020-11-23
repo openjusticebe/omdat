@@ -35,8 +35,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/apollo',
     'nuxt-highlightjs',
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/eslint-module'
   ],
   bootstrapVue: {
     bootstrapCSS: false,

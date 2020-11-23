@@ -73,6 +73,8 @@
 export default {
   async fetch () {
     const apiResults = await fetch(
+     // fetch(`${process.env.GATSBY_DATA_API}/create`, {
+
       `https://ecli.openjustice.be${this.$route.fullPath}`,
       {
         headers: {
