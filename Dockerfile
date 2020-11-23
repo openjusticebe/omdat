@@ -20,11 +20,11 @@ ENV NUXT_PORT=80
 # copy the app, note .dockerignore
 # RUN git clone http://github.com/openjusticebe/ecli-frontend.git /usr/src/app/
 COPY . /usr/src/app
-RUN npm install
-RUN npm run build
+RUN yarn install
+RUN yarn build
 
 EXPOSE 80
 
 
 
-CMD [ "npm", "start" ]
+CMD [ "yarn", "start" ]
