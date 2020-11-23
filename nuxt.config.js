@@ -41,7 +41,7 @@ export default {
     bootstrapVueCSS: false
   },
   styleResources: {
-    scss: '@/assets/scss/_variables.scss'
+    // scss: '@/assets/scss/_variables.scss'
   },
   axios: {
     // See https://github.com/nuxt-community/axios-module#options

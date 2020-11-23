@@ -1,5 +1,5 @@
 # Dockerfile
-FROM node:10-alpine
+FROM node:12-alpine
 
 # quick hack invalidates the cache
 ADD https://www.google.com /time.now
@@ -18,7 +18,7 @@ ENV NUXT_HOST=0.0.0.0
 ENV NUXT_PORT=80
 
 # copy the app, note .dockerignore
-RUN git clone http://github.com/openjusticebe/ecli-frontend.git /usr/src/app/
+# RUN git clone http://github.com/openjusticebe/ecli-frontend.git /usr/src/app/
 
 RUN yarn install
 RUN yarn build
