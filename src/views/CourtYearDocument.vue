@@ -1,5 +1,5 @@
 <template>
-  <h1>This document is {{ $route.params }}</h1>
+  <h1>Document is {{ $route.params.court }}</h1>
 
   <div v-if="!data_fetched">
     <loading-animation />
@@ -16,9 +16,10 @@
       <a
         v-for="(link, index) in fields.content.links"
         :key="index"
+        :href="env.VUE_APP_REST_API_URL + link.href"
         class="list-group-item"
       >
-        {{ link.rel }} {{ link }}
+        {{ link.rel }}
       </a>
     </div>
 
@@ -39,7 +40,13 @@ export default {
     page_url: String,
   },
   data() {
-    return {};
+    return {
+      env: null,
+    };
+  },
+
+  mounted() {
+    this.env = process.env;
   },
 };
 </script>

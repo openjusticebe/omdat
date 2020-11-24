@@ -1,6 +1,5 @@
 <template>
   <h1>This court is {{ $route.params.court }}</h1>
-  {{ $route.params }}
 
   <div v-if="!data_fetched">
     <loading-animation />
@@ -20,16 +19,9 @@
           {{ index }}
         </th>
         <td>
-          {{ item.href }}
+          {{ item.name }}
         </td>
-        <td class="small">
-          <ul class="list-unstyled">
-            <li>
-              Document count: {{ Math.floor(Math.random() * 10000) }} (fake)
-            </li>
-            <li>Last updated at 2020-01-01 (fake)</li>
-          </ul>
-        </td>
+        <td class="small"></td>
         <td>
           <small>Description du {{ item.name }}</small>
           <br />

@@ -1,5 +1,7 @@
 <template>
-  <h1>This court is {{ $route.params }}</h1>
+  <h1>
+    {{ $route.params.court }} <small>{{ $route.params.year }}</small>
+  </h1>
 
   <div v-if="!data_fetched">
     <loading-animation />
@@ -9,8 +11,8 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">
-          Legal Document of {{ $route.params.courts }}
-          {{ $route.params.years }}
+          Document {{ $route.params.court }}
+          {{ $route.params.year }}
         </th>
         <th scope="col" />
         <th scope="col">Description</th>
@@ -27,7 +29,7 @@
       </td>
       <td />
       <td>
-        <ul>
+        <ul class="list-unstyled">
           <li>
             ECLI ref<sup
               ><a
@@ -36,7 +38,7 @@
               ></sup
             >:
             <code
-              >BE:{{ $route.params.court }}:{{ $route.params.year }}:{{
+              >ECLI:BE:{{ $route.params.court }}:{{ $route.params.year }}:{{
                 item.name
               }}</code
             >
