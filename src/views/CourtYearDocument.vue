@@ -1,5 +1,12 @@
 <template>
-  <h1>Document is {{ $route.params.court }}</h1>
+  <h1>
+    <code
+      >ECLI:BE:{{ $route.params.court }}:{{ $route.params.year }}:{{
+        $route.params.document
+      }}</code
+    >
+    <small>document</small>
+  </h1>
 
   <div v-if="!data_fetched">
     <loading-animation />
@@ -12,25 +19,26 @@
       class="float-right"
     />
 
-    <div id="list-tab" class="list-group list-group-horizontal" role="tablist">
-      <div v-for="(link, index) in fields.content.links" :key="index">
-        <a v-if="link.rel == 'meta'" :href="link.href" class="list-group-item">
-          {{ link.rel }}
-        </a>
-        <a
-          v-else
-          :href="env.VUE_APP_REST_API_URL + link.href"
-          class="list-group-item"
-        >
-          {{ link.rel }}
-        </a>
-      </div>
-    </div>
-
-    <code class="javascript">
-      {{ fields.content.data }}
-      {{ fields.content.links }}
-    </code>
+    <span class="text-muted">{{ fields.content.data.website }}</span>
+    <ul class="text-left">
+      <li v-for="(link, index) in fields.content.links" :key="index">
+        <span v-if="link.rel == 'meta'"
+          ><a :href="link.href">
+            {{ link.rel }}
+          </a>
+          permalink: <small class="text-muted">{{ link.href }}</small>
+        </span>
+        <span v-else>
+          <a :href="env.VUE_APP_REST_API_URL + link.href">
+            {{ link.rel }}
+          </a>
+          permalink:
+          <small class="text-muted">{{
+            env.VUE_APP_REST_API_URL + link.href
+          }}</small>
+        </span>
+      </li>
+    </ul>
   </div>
 </template>
 <script>

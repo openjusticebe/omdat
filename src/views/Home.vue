@@ -35,7 +35,7 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Search in documents"
+          placeholder="Not yet implemented"
           disabled
         />
         <div class="input-group-append">
@@ -127,7 +127,6 @@ export default {
   mixins: [getDataMixin],
 
   props: {
-    msg: String,
     page_url: String,
   },
   data() {
