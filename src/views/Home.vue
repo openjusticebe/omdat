@@ -1,11 +1,15 @@
 <template>
   <div class="row">
     <h1>OpenJustice.be search tool</h1>
+
+    <svg class="bi" width="32" height="32" fill="currentColor">
+      <use xlink:href="bootstrap-icons.svg#heart-fill" />
+    </svg>
+
     <div class="col-12">
-      <ul class="ext-links">
+      <ul class="green">
         <li>
           <a
-            class="ext-link"
             href="https://twitter.com/OpenjusticeB"
             target="_blank"
             rel="noopener"
@@ -145,7 +149,7 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-.ext-links a {
+.green a {
   color: #079455;
 }
 

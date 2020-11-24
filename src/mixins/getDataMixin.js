@@ -20,9 +20,16 @@ export default {
     methods: {
         
       fetchData(page_url){
+        console.log(this.$route.fullPath)
         if (page_url == null) {
-            page_url = process.env.VUE_APP_REST_API_URL + 'BE/';
+          if(this.$route.fullPath == '/') {
+            page_url = process.env.VUE_APP_REST_API_URL + '/BE/';
+          }
+          else {
+            page_url = process.env.VUE_APP_REST_API_URL + this.$route.fullPath;
+          }
         }
+        console.log(page_url)
         axios.get(page_url, {
             headers: {
               Accept: "application/json",
