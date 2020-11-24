@@ -13,14 +13,18 @@
     />
 
     <div id="list-tab" class="list-group list-group-horizontal" role="tablist">
-      <a
-        v-for="(link, index) in fields.content.links"
-        :key="index"
-        :href="env.VUE_APP_REST_API_URL + link.href"
-        class="list-group-item"
-      >
-        {{ link.rel }}
-      </a>
+      <div v-for="(link, index) in fields.content.links" :key="index">
+        <a v-if="link.rel == 'meta'" :href="link.href" class="list-group-item">
+          {{ link.rel }}
+        </a>
+        <a
+          v-else
+          :href="env.VUE_APP_REST_API_URL + link.href"
+          class="list-group-item"
+        >
+          {{ link.rel }}
+        </a>
+      </div>
     </div>
 
     <code class="javascript">
@@ -44,7 +48,6 @@ export default {
       env: null,
     };
   },
-
   mounted() {
     this.env = process.env;
   },
