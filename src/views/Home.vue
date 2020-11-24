@@ -2,10 +2,6 @@
   <div class="row">
     <h1>OpenJustice.be search tool</h1>
 
-    <svg class="bi" width="32" height="32" fill="currentColor">
-      <use xlink:href="bootstrap-icons.svg#heart-fill" />
-    </svg>
-
     <div class="col-12">
       <ul class="green">
         <li>
@@ -49,7 +45,11 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div v-if="!data_fetched">
+      <loading-animation />
+    </div>
+
+    <div class="container" v-else>
       <div class="row">
         <div class="col-12">
           <h3>Browse courts</h3>

@@ -1,7 +1,10 @@
 <template>
   <h1>This court is {{ $route.params }}</h1>
 
-  <table class="table table-transparent">
+  <div v-if="!data_fetched">
+    <loading-animation />
+  </div>
+  <table class="table table-transparent" v-else>
     <thead>
       <tr>
         <th scope="col">#</th>
