@@ -1,14 +1,7 @@
 <template>
   <div class="row">
-    <div v-if="!data_fetched" class="text-center">loading</div>
-    <div class="col-12" v-else>
-      <h1>{{ msg }}</h1>
-      {{ page_url }}
-      {{ fields }}
-      <div v-for="(field, index) in fields" :key="index">
-        {{ field.collection }}
-      </div>
-      {{}}
+    <h1>{{ msg }}</h1>
+    <div class="col-12">
       <ul>
         <li>
           <a
@@ -50,24 +43,17 @@
         </div>
       </div>
     </div>
+
+    <div v-if="!data_fetched" class="text-center">loading</div>
+    <div class="col-12" v-else>
+      <div v-for="(field, index) in fields.collection" :key="index">
+        <a :href="field.href">{{ field.name }} {{ field.href }}</a>
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
-import getDataMixin from "../mixins/getDataMixin";
 
-export default {
-  mixins: [getDataMixin],
-
-  props: {
-    msg: String,
-    page_url: String,
-  },
-  data() {
-    return {};
-  },
-};
-</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
@@ -83,7 +69,7 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #079455;
 }
 
 .top {

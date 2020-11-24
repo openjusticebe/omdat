@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-      <div class="container">
+      <div class="container container-xl">
         <a class="navbar-brand" href="/">
           <img
             src="https://raw.githubusercontent.com/openjusticebe/ui-assets/main/svg/OpenJustice.be_static.svg"
@@ -26,7 +26,7 @@
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/"> Home </a>
+              <!-- <a class="nav-link" href="/"> Home </a> -->
             </li>
           </ul>
 
@@ -34,8 +34,12 @@
           <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
             <li class="nav-item">
-              <a href="/login"> Register <span class="caret"></span> </a>
-              <a href="/login"> Login <span class="caret"></span> </a>
+              <a href="/register" class="btn disabled">
+                Register <span class="caret"></span>
+              </a>
+              <a href="/login" class="btn disabled">
+                Login <span class="caret"></span>
+              </a>
             </li>
           </ul>
         </div>
@@ -47,43 +51,15 @@
         <div class="row justify-content-center">
           <div class="col-md-12">
             <div class="card">
-              <div class="card-header">ECLI</div>
-
-              {{ title }}
+              <div class="card-header">Welcome OpenJustice.be search tool</div>
 
               <div class="card-body">
-                <!-- <img alt="OJ logo" src="./assets/logo.png"> -->
-                <WelcomeOJ
+                <!-- <WelcomeOJ
                   msg="Welcome to OpenJustice.be search tool"
                   page_url="https://ecli.openjustice.be/BE/"
-                />
-                {{ info }}
-                {{ env }}
+                /> -->
 
-                <router-link to="/about">about</router-link>
                 <router-view />
-                <h3>Browse courts</h3>
-                <div v-if="!data_fetched">sss</div>
-                <!-- <div
-                  v-for="(fields, index) in api_results.collection"
-                  :key="index"
-                >
-                  <ul>
-                    <li v-for="(field, idx) in fields.collection" :key="idx">
-                      <a :href="field.href"
-                        >{{ field.name }} {{ field.href }}</a
-                      >
-                    </li>
-                  </ul>
-                </div> -->
-
-                <div class="text-right">
-                  <img
-                    src="https://raw.githubusercontent.com/openjusticebe/ui-assets/main/svg/OpenJustice.be_static.svg"
-                    width="240px"
-                    alt=""
-                  />
-                </div>
               </div>
 
               <Footer />
@@ -108,13 +84,6 @@ export default {
     };
   },
   mounted() {
-    // axios
-    //   .get(`https://ecli.openjustice.be/BE/`, {
-    //     headers: {
-    //       Accept: "application/json",
-    //     },
-    //   })
-    //   .then((response) => (this.api_results = response));
     this.env = process.env;
   },
 };

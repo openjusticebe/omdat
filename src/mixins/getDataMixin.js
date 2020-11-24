@@ -18,7 +18,11 @@ export default {
       this.fetchData(this.page_url);
     },
     methods: {
+        
       fetchData(page_url){
+        if (page_url == null) {
+            page_url = process.env.VUE_APP_REST_API_URL + 'BE/';
+        }
         axios.get(page_url, {
             headers: {
               Accept: "application/json",
