@@ -1,30 +1,13 @@
-# Dockerfile
-FROM node:12-alpine
+# build stage
+FROM node:lts-alpine as build-stage
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
 
-# quick hack invalidates the cache
-ADD https://www.google.com /time.now
-
-# create destination directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-# update and install dependency
-RUN apk update && apk upgrade
-RUN apk add git
-
-# set environment variables
-ENV NODE_ENV production
-ENV NUXT_HOST=0.0.0.0
-ENV NUXT_PORT=80
-
-# copy the app, note .dockerignore
-# RUN git clone http://github.com/openjusticebe/ecli-frontend.git /usr/src/app/
-COPY . /usr/src/app
-RUN yarn install
-RUN yarn build
-
+# production stage
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 80
-
-
-
-CMD [ "yarn", "start" ]
+CMD ["nginx", "-g", "daemon off;"]
