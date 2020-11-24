@@ -20,16 +20,14 @@ export default {
     methods: {
         
       fetchData(page_url){
-        console.log(this.$route.fullPath)
-        if (page_url == null) {
+        if (page_url == null) { // If page_url not specified
           if(this.$route.fullPath == '/') {
-            page_url = process.env.VUE_APP_REST_API_URL + '/BE/';
+            page_url = process.env.VUE_APP_REST_API_URL + '/BE/'; // If homepage --> default API with /BE
           }
           else {
-            page_url = process.env.VUE_APP_REST_API_URL + this.$route.fullPath;
+            page_url = process.env.VUE_APP_REST_API_URL + this.$route.fullPath; // If !Homepage
           }
         }
-        console.log(page_url)
         axios.get(page_url, {
             headers: {
               Accept: "application/json",

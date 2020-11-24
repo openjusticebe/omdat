@@ -58,7 +58,7 @@
         <div class="col-sm">
           <h3>Tribunals</h3>
           <h4>Tribunaux de Commerce</h4>
-          <div v-for="(field, index) in fields.collection" :key="index">
+          <div v-for="(field, index) in fields.collection.sort()" :key="index">
             <a
               :href="field.href"
               v-if="
@@ -69,7 +69,7 @@
             >
           </div>
           <h4>Tribunaux de première instance</h4>
-          <div v-for="(field, index) in fields.collection" :key="index">
+          <div v-for="(field, index) in fields.collection.sort()" :key="index">
             <a
               :href="field.href"
               v-if="
@@ -80,7 +80,7 @@
             >
           </div>
           <h4>Tribunaux du travail</h4>
-          <div v-for="(field, index) in fields.collection" :key="index">
+          <div v-for="(field, index) in fields.collection.sort()" :key="index">
             <a
               :href="field.href"
               v-if="
@@ -94,7 +94,7 @@
 
         <div class="col-sm">
           <h3>Courts</h3>
-          <div v-for="(field, index) in fields.collection" :key="index">
+          <div v-for="(field, index) in fields.collection.sort()" :key="index">
             <a :href="field.href" v-if="field.name.includes('Cour')">{{
               field.name
             }}</a>
@@ -103,7 +103,7 @@
 
         <div class="col-sm">
           <h3>Conseils, commissions, etc.</h3>
-          <div v-for="(field, index) in fields.collection" :key="index">
+          <div v-for="(field, index) in fields.collection.sort()" :key="index">
             <a
               :href="field.href"
               v-if="
