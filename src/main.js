@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 
+import "./assets/styles/custom.scss";
+
 const app = createApp(App)
 
 // Register every components in ./components DIR

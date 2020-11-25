@@ -4,7 +4,7 @@ node_modules
 # logs
 npm-debug.log
 
-# Nuxt generate
+# build dir
 dist
 
 yarn-error.log

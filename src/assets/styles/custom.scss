@@ -1,0 +1,22 @@
+$blue: #4B6CBE;
+$orange: #f26c22;
+$light_blue: #f5f7fb;
+
+$primary: $blue;
+$secondary: $orange;
+
+#app {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  /* margin-top: 60px; */
+  background-color: $light_blue;
+}
+
+.top {
+  background-color: $light_blue;
+}
+
+@import 'node_modules/bootstrap/scss/bootstrap';
