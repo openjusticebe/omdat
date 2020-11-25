@@ -5,7 +5,9 @@
         $route.params.document
       }}</code
     >
-    <small>document</small>
+    <small class="text-muted">
+      <em>Document</em>
+    </small>
   </h1>
 
   <div v-if="!data_fetched">
@@ -15,8 +17,8 @@
     <img
       :src="fields.content.data.logo"
       alt="Logo of {{ $route.params.court }}"
-      width="200"
-      class="float-right"
+      width="100"
+      class="float-right rounded mx-auto d-block img-thumbnail"
     />
 
     <span class="text-muted">{{ fields.content.data.website }}</span>
