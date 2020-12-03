@@ -1,6 +1,6 @@
-# ECLI frontend
+# Omdat - ECLI frontend of OpenJustice.be
 
-🚧 Under (heavy) construction. Please come back in a few nanoseconds. 🚧
+🚧 Under construction 🚧
 
 Frontend of ECLI API : <https://github.com/openjusticebe/ecli>
 
