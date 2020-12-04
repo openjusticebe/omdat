@@ -1,9 +1,10 @@
 <template>
-  <h1>This court is {{ $route.params.court }}</h1>
+  <h1>This court is {{ $route.params.court }} {{ fields.data.name_fr }}</h1>
 
   <div v-if="!data_fetched">
     <loading-animation />
   </div>
+
   <div class="table-responsive" v-else>
     <table class="table table-striped">
       <thead>
@@ -15,19 +16,21 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in fields.collection" :key="index">
+        <tr v-for="(item, index) in fields.data.docs_per_year" :key="index">
           <th scope="row">
             {{ index }}
           </th>
           <td>
-            {{ item.name }}
+            {{ item.year }}
           </td>
           <td class="small"></td>
           <td>
             <small>Description du {{ item.name }}</small>
             <br />
             Link:
-            <a :href="item.href">{{ item.href }}</a>
+            <a :href="'/BE/' + $route.params.court + '/' + item.year">
+              {{ "BE/" + $route.params.court + "/" + item.year }}
+            </a>
           </td>
         </tr>
       </tbody>

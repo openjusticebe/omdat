@@ -53,10 +53,35 @@
     <p class="text-small"><br /><br /><br /></p>
   </section>
 
+  <!-- <Chart /> -->
+
   <div v-if="!data_fetched">
     <loading-animation />
   </div>
+  <div class="container" v-else>
+    <div class="row">
+      <div class="col-12">
+        <h3>Browse courts</h3>
+      </div>
+      <div v-for="(field, index) in fields.data" :key="index" class="col-md">
+        <h4>{{ field.label_fr }} {{ field.label_nl }}</h4>
 
+        <div v-for="(court, index) in field.courts" :key="index">
+          <a :href="'BE/' + court.acronym">{{ court.name_fr }}</a>
+          <div>
+            <small
+              >{{ court.count_total }}📄 From {{ court.first_year }}—{{
+                court.last_year
+              }}
+              <br />
+              Languages {{ court.lang_count }} Types {{ court.type_count }} 🏷️
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 
   <div class="container" v-else>
     <div class="row">
       <div class="col-12">
@@ -66,7 +91,7 @@
       <div class="col-sm">
         <h3>Tribunals</h3>
         <h4>Tribunaux de Commerce</h4>
-        <div v-for="(field, index) in fields.collection.sort()" :key="index">
+        <div v-for="(field, index) in fields.data" :key="index">
           <a
             :href="field.href"
             v-if="
@@ -119,7 +144,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 

@@ -19,7 +19,7 @@
           <th scope="col">Description</th>
         </tr>
       </thead>
-      <tr v-for="(item, index) in fields.collection" :key="index">
+      <tr v-for="(item, index) in fields.data" :key="index">
         <th scope="row" class="text-muted">
           {{ index }}
         </th>
@@ -40,8 +40,8 @@
               >:
               <code
                 >ECLI:BE:{{ $route.params.court }}:{{ $route.params.year }}:{{
-                  item.name
-                }}</code
+                  item.type
+                }}.{{ item.num }}</code
               >
             </li>
             <li>
