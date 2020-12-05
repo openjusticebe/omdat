@@ -61,13 +61,20 @@
   <div class="container" v-else>
     <div class="row">
       <div class="col-12">
-        <h3>Browse courts</h3>
+        <h2>{{ fields.data.title_fr }}</h2>
+        <hr />
       </div>
-      <div v-for="(field, index) in fields.data" :key="index" class="col-md">
+      <div
+        v-for="(field, index) in fields.data.categories"
+        :key="index"
+        class="col-md"
+      >
         <h4>{{ field.label_fr }} {{ field.label_nl }}</h4>
 
         <div v-for="(court, index) in field.courts" :key="index">
-          <a :href="'BE/' + court.acronym">{{ court.name_fr }}</a>
+          <a :href="'BE/' + court.acronym">
+            <strong>{{ court_name(court) }}</strong>
+          </a>
           <div>
             <small
               >{{ court.count_total }}📄 From {{ court.first_year }}—{{
@@ -157,6 +164,19 @@ export default {
 
   props: {
     page_url: String,
+  },
+  methods: {
+    court_name: function (court) {
+      if (court.def === "nl") {
+        return court.name_nl;
+      } else if (court.def === "de") {
+        return court.name_de;
+      } else if (court.def === "fr") {
+        return court.name_fr;
+      } else {
+        return court.name_fr;
+      }
+    },
   },
   data() {
     return {};
