@@ -11,20 +11,35 @@
 
 <script>
 export default {
+  props: ["labels", "serie"],
+
   data: function () {
     return {
       chartOptions: {
+        colors: [
+          "#4B6CBE",
+          "#6574cd",
+          "#9561e2",
+          "#f66d9b",
+          "#e3342f",
+          "#f26c22",
+          "#ffed4a",
+          "#38c172",
+          "#4dc0b5",
+          "#6cb2eb",
+        ],
+
         chart: {
           id: "vuechart-example",
         },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+          categories: this.labels,
         },
       },
       series: [
         {
           name: "series-1",
-          data: [30, 40, 35, 50, 49, 60, 70, 91],
+          data: this.serie,
         },
       ],
     };

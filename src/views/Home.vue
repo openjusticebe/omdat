@@ -53,11 +53,10 @@
     <p class="text-small"><br /><br /><br /></p>
   </section>
 
-  <!-- <Chart /> -->
-
   <div v-if="!data_fetched">
     <loading-animation />
   </div>
+
   <div class="container" v-else>
     <div class="row">
       <div class="col-12">
