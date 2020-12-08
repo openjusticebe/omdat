@@ -1,15 +1,13 @@
 <template>
-  <div id="app">
+  <div>
     <main class="py-0">
       <nav class="navbar navbar-expand-md navbar-light top">
         <div class="container">
-          <a class="navbar-brand" href="/">
-            <img
-              src="https://raw.githubusercontent.com/openjusticebe/ui-assets/main/svg/OpenJustice.be_static.svg"
-              alt=""
-              width="150px"
-            />
-          </a>
+          <a
+            class="navbar-brand text-primary font-weight-bold text-uppercase"
+            href="/"
+            >{{ env.VUE_APP_NAME }}</a
+          >
 
           <button
             class="navbar-toggler"
@@ -84,7 +82,7 @@ export default {
   data() {
     return {
       api_results: null,
-      env: null,
+      env: {},
     };
   },
   mounted() {

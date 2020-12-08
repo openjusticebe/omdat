@@ -1,8 +1,8 @@
 <template>
   <div>
     <apexchart
-      type="pie"
-      width="350"
+      width="500"
+      type="line"
       :options="chartOptions"
       :series="series"
     ></apexchart>
@@ -12,12 +12,12 @@
 <script>
 export default {
   props: ["labels", "serie"],
+
   data: function () {
     return {
-      series: this.serie,
       chartOptions: {
         colors: [
-          "#4dc0b5",
+          "#4B6CBE",
           "#6574cd",
           "#9561e2",
           "#f66d9b",
@@ -25,29 +25,27 @@ export default {
           "#f26c22",
           "#ffed4a",
           "#38c172",
+          "#4dc0b5",
           "#6cb2eb",
-          "#4B6CBE",
         ],
-        chart: {
-          width: 380,
-          type: "pie",
-        },
 
-        labels: this.labels,
-        responsive: [
-          {
-            breakpoint: 480,
-            options: {
-              chart: {
-                width: 200,
-              },
-              legend: {
-                position: "bottom",
-              },
-            },
-          },
-        ],
+        chart: {
+          id: "vuechart-example",
+        },
+        xaxis: {
+          categories: this.labels,
+        },
+        dataLabels: {
+          enabled: false,
+        },
       },
+
+      series: [
+        {
+          name: "Year",
+          data: this.serie,
+        },
+      ],
     };
   },
 };

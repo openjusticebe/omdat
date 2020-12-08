@@ -35,10 +35,14 @@ export default {
         xaxis: {
           categories: this.labels,
         },
+        dataLabels: {
+          enabled: false,
+        },
       },
+
       series: [
         {
-          name: "series-1",
+          name: "Year",
           data: this.serie,
         },
       ],

@@ -1,7 +1,7 @@
 <template>
-  <section class="text-center top">
-    <h1 class="display-3 font-weight-bold"><em>O</em>mdat</h1>
-    <p class="lead text-muted">
+  <section class="text-center top" style="padding-top: 200px">
+    <h1 class="display-3 font-weight-normal"><em>O</em>mdat</h1>
+    <p class="lead text-muted font-weight-normal">
       A free open source solution developed by OpenJustice.be with ❤️ to browse
       <strong>Belgian case law</strong>.
     </p>
@@ -26,7 +26,7 @@
     </div>
     <p class="text-small"><br /></p>
     <div class="row">
-      <div class="col-8 offset-2 small">
+      <div class="col-8 offset-2 small text-secondary">
         <a
           href="https://twitter.com/OpenjusticeB"
           target="_blank"
@@ -61,20 +61,25 @@
     <div class="row">
       <div class="col-12">
         <h2>{{ fields.data.title_fr }}</h2>
+        <h2>{{ fields.data.title_nl }}</h2>
+        <h2>{{ fields.data.title_de }}</h2>
+
         <hr />
       </div>
       <div
         v-for="(field, index) in fields.data.categories"
         :key="index"
-        class="col-md"
+        class="col-md-3"
       >
-        <h4>{{ field.label_fr }} {{ field.label_nl }}</h4>
+        <h4>{{ field.label_fr }}</h4>
+        <h4>{{ field.label_nl }}</h4>
+        <h4>{{ field.label_de }}</h4>
 
         <div v-for="(court, index) in field.courts" :key="index">
           <a :href="'BE/' + court.acronym">
             <strong>{{ court_name(court) }}</strong>
           </a>
-          <div>
+          <!-- <div>
             <small
               >{{ court.count_total }}📄 From {{ court.first_year }}—{{
                 court.last_year
@@ -82,7 +87,7 @@
               <br />
               Languages {{ court.lang_count }} Types {{ court.type_count }} 🏷️
             </small>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
