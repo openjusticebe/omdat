@@ -4,10 +4,10 @@
       <nav class="navbar navbar-expand-md navbar-light top">
         <div class="container">
           <a
-            class="navbar-brand text-primary font-weight-bold text-uppercase"
+            class="navbar-brand text-primary font-weight-bold"
             href="/"
-            >{{ env.VUE_APP_NAME }}</a
-          >
+            v-html="env.VUE_APP_NAME"
+          ></a>
 
           <button
             class="navbar-toggler"
@@ -32,12 +32,12 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
               <!-- Authentication Links -->
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="/login" class="btn disabled">
                   Login <span class="caret"></span>
                 </a>
                 <a href="#" class="btn disabled">Register</a>
-              </li>
+              </li> -->
               <div class="btn-group">
                 <button
                   type="button"
