@@ -1,29 +1,25 @@
 <template>
-  <h1>
-    <code
-      >ECLI:BE:{{ $route.params.court }}:{{ $route.params.year }}:{{
-        $route.params.document
-      }}</code
-    >
-    <small class="text-muted">
-      <em>Document</em>
-    </small>
-  </h1>
-
   <div v-if="!data_fetched">
     <loading-animation />
   </div>
   <div v-else>
+    <h1>
+      <code>{{ fields.data.ecli }}</code>
+      <small class="text-muted"> </small>
+    </h1>
+
+    {{ fields.data }}
     <img
-      :src="fields.content.data.logo"
-      alt="Logo of {{ $route.params.court }}"
+      v-if="fields.data.court.logo_href"
+      :src="fields.data.court.logo_href"
+      :alt="'Logo of ' + fields.data.court.name_fr"
       width="100"
       class="float-right rounded mx-auto d-block img-thumbnail"
     />
 
-    <span class="text-muted">{{ fields.content.data.website }}</span>
+    <span class="text-muted">{{ fields.data.court.court_href }}</span>
     <ul class="text-left">
-      <li v-for="(link, index) in fields.content.links" :key="index">
+      <li v-for="(link, index) in fields.data.links" :key="index">
         <span v-if="link.rel == 'meta'"
           ><a :href="link.href">
             {{ link.rel }}
@@ -50,7 +46,6 @@ export default {
   mixins: [getDataMixin],
 
   props: {
-    msg: String,
     page_url: String,
   },
   data() {

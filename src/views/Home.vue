@@ -64,12 +64,7 @@
   <div class="container" v-else>
     <div class="row">
       <div class="col-12">
-        <h3>Browse courts</h3>
-        <!-- 
-        <h2>{{ fields.data.title_fr }}</h2>
-        <h2>{{ fields.data.title_nl }}</h2>
-        <h2>{{ fields.data.title_de }}</h2> -->
-
+        <h3>{{ fields.data.title }}</h3>
         <hr />
       </div>
       <div
@@ -77,13 +72,13 @@
         :key="index"
         class="col-md-4"
       >
-        <h4>{{ field.label_fr }}</h4>
+        <h4>{{ field.label }}</h4>
 
         <span v-for="(court, index) in field.courts" :key="index">
           <template v-if="index > 0"> — </template>
 
           <a :href="'BE/' + court.acronym"
-            ><strong>{{ court_name(court) }}</strong></a
+            ><strong>{{ court.name }}</strong></a
           >
           <!-- <small
             >{{ court.count_total }}📄 {{ court.first_year }}—{{
@@ -110,32 +105,10 @@ export default {
   mounted() {
     this.env = process.env;
   },
-  methods: {
-    increment() {
-      while (this.start_count < this.fields.data.count_documents) {
-        setInterval(() => {
-          this.start_count++;
-        }, 30);
-      }
-      return this.start_count;
-    },
-    court_name: function (court) {
-      if (court.def === "nl") {
-        return court.name_nl;
-      } else if (court.def === "de") {
-        return court.name_de;
-      } else if (court.def === "fr") {
-        return court.name_fr;
-      } else {
-        return court.name_fr;
-      }
-    },
-  },
+  methods: {},
   data() {
     return {
       env: {},
-      start_count: 134000,
-      currentNum: 0,
     };
   },
 };
