@@ -1,6 +1,39 @@
+// Body
+$body-bg: #EEF3F9; //#EEF3F9
+
+// Typography
+$font-family-sans-serif: 'Open Sans',
+sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
 $blue: #4B6CBE;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
 $orange: #f26c22;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+
 $light_blue: #f5f7fb;
+
+$brand-primary: #428BCA;
+$brand-success: #1ABC9C;
+$brand-info: #5BC0DE;
+$brand-warning: #FFD195;
+$brand-danger: #C0392B;
+
+$primary: #428BCA;
+$success: #1ABC9C;
+$info: #5BC0DE;
+$warning: #FFD195;
+$danger: #C0392B;
+
+$bg-warning: #FFD195;
 
 
 $primary: $blue;

@@ -1,15 +1,13 @@
 <template>
-  <div id="app">
+  <div>
     <main class="py-0">
       <nav class="navbar navbar-expand-md navbar-light top">
         <div class="container">
-          <a class="navbar-brand" href="/">
-            <img
-              src="https://raw.githubusercontent.com/openjusticebe/ui-assets/main/svg/OpenJustice.be_static.svg"
-              alt=""
-              width="150px"
-            />
-          </a>
+          <a
+            class="navbar-brand text-primary font-weight-bold"
+            href="/"
+            v-html="env.VUE_APP_NAME"
+          ></a>
 
           <button
             class="navbar-toggler"
@@ -34,12 +32,12 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
               <!-- Authentication Links -->
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="/login" class="btn disabled">
                   Login <span class="caret"></span>
                 </a>
                 <a href="#" class="btn disabled">Register</a>
-              </li>
+              </li> -->
               <div class="btn-group">
                 <button
                   type="button"
@@ -76,7 +74,6 @@
 </template>
 
 <script>
-// import axios from "axios";
 
 export default {
   name: "App",
@@ -84,7 +81,7 @@ export default {
   data() {
     return {
       api_results: null,
-      env: null,
+      env: {},
     };
   },
   mounted() {

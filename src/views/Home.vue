@@ -1,10 +1,10 @@
 <template>
-  <section class="text-center top">
-    <h1 class="display-3 font-weight-bold"><em>O</em>mdat</h1>
-    <p class="lead text-muted">
-      A free open source solution developed by OpenJustice.be with ❤️ to browse
-      <strong>Belgian case law</strong>.
-    </p>
+  <section class="text-center top" style="padding-top: 200px">
+    <h1 class="display-3 font-weight-normal" v-html="env.VUE_APP_NAME"></h1>
+    <p
+      class="lead text-muted font-weight-normal"
+      v-html="env.VUE_APP_TAGLINE"
+    ></p>
 
     <!-- Search button -->
     <div class="row">
@@ -24,9 +24,15 @@
         </div>
       </div>
     </div>
-    <p class="text-small"><br /></p>
-    <div class="row">
+    <div class="row" id="global_count">
       <div class="col-8 offset-2 small">
+        <div v-if="data_fetched">
+          <strong>{{ fields.data.count_documents }}</strong> documents gathered
+          from <strong>{{ fields.data.count_courts }}</strong> courts
+        </div>
+      </div>
+
+      <div class="col-8 offset-2 small text-secondary">
         <a
           href="https://twitter.com/OpenjusticeB"
           target="_blank"
@@ -49,8 +55,6 @@
         >
       </div>
     </div>
-
-    <p class="text-small"><br /><br /><br /></p>
   </section>
 
   <div v-if="!data_fetched">
@@ -60,63 +64,28 @@
   <div class="container" v-else>
     <div class="row">
       <div class="col-12">
-        <h3>Browse courts</h3>
+        <h3>{{ fields.data.title }}</h3>
+        <hr />
       </div>
+      <div
+        v-for="(field, index) in fields.data.categories"
+        :key="index"
+        class="col-md-4"
+      >
+        <h4>{{ field.label }}</h4>
 
-      <div class="col-sm">
-        <h3>Tribunals</h3>
-        <h4>Tribunaux de Commerce</h4>
-        <div v-for="(field, index) in fields.collection.sort()" :key="index">
-          <a
-            :href="field.href"
-            v-if="
-              field.name.includes('Tribunal') && field.name.includes('Commerce')
-            "
-            >{{ field.name }}</a
-          >
-        </div>
-        <h4>Tribunaux de première instance</h4>
-        <div v-for="(field, index) in fields.collection.sort()" :key="index">
-          <a
-            :href="field.href"
-            v-if="
-              field.name.includes('Tribunal') && field.name.includes('instance')
-            "
-            >{{ field.name }}</a
-          >
-        </div>
-        <h4>Tribunaux du travail</h4>
-        <div v-for="(field, index) in fields.collection.sort()" :key="index">
-          <a
-            :href="field.href"
-            v-if="
-              field.name.includes('Tribunal') && field.name.includes('travail')
-            "
-            >{{ field.name }}</a
-          >
-        </div>
-      </div>
+        <span v-for="(court, index) in field.courts" :key="index">
+          <template v-if="index > 0"> — </template>
 
-      <div class="col-sm">
-        <h3>Courts</h3>
-        <div v-for="(field, index) in fields.collection.sort()" :key="index">
-          <a :href="field.href" v-if="field.name.includes('Cour')">{{
-            field.name
-          }}</a>
-        </div>
-      </div>
-
-      <div class="col-sm">
-        <h3>Conseils, commissions, etc.</h3>
-        <div v-for="(field, index) in fields.collection.sort()" :key="index">
-          <a
-            :href="field.href"
-            v-if="
-              !field.name.includes('Tribunal') && !field.name.includes('Cour')
-            "
-            >{{ field.name }}</a
+          <a :href="'BE/' + court.acronym"
+            ><strong>{{ court.name }}</strong></a
           >
-        </div>
+          <!-- <small
+            >{{ court.count_total }}📄 {{ court.first_year }}—{{
+              court.last_year
+            }}
+          </small> -->
+        </span>
       </div>
     </div>
   </div>
@@ -133,17 +102,29 @@ export default {
   props: {
     page_url: String,
   },
+  mounted() {
+    this.env = process.env;
+  },
+  methods: {},
   data() {
-    return {};
+    return {
+      env: {},
+    };
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#global_count {
+  padding-bottom: 40px;
+    padding-top: 40px;
+
+}
+
 h3 {
   margin: 40px 0 0;
 }
+
 ul {
   list-style-type: none;
   padding: 0;

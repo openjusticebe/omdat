@@ -2,8 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import Court from "@/views/Court.vue";
-import CourtYear from "@/views/CourtYear.vue";
-import CourtYearDocument from "@/views/CourtYearDocument.vue";
+import Document from "@/views/Document.vue";
 
 const routes = [
   {
@@ -22,17 +21,11 @@ const routes = [
     component: Court,
   },
 
-  {
-    path: "/BE/:court/:year",
-    name: "CourtYear",
-    component: CourtYear,
-  },
-
 
   {
     path: "/BE/:court/:year/:document",
-    name: "CourtYearDocument",
-    component: CourtYearDocument,
+    name: "Document",
+    component: Document,
   },
 
 ];
