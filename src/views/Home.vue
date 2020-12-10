@@ -24,14 +24,14 @@
         </div>
       </div>
     </div>
-    <p class="text-small"><br /></p>
-    <div class="row">
-      <div class="col-8 offset-2 small text-secondary">
+    <div class="row" id="global_count">
+      <div class="col-8 offset-2 small">
         <div v-if="data_fetched">
           <strong>{{ fields.data.count_documents }}</strong> documents gathered
           from <strong>{{ fields.data.count_courts }}</strong> courts
         </div>
       </div>
+
       <div class="col-8 offset-2 small text-secondary">
         <a
           href="https://twitter.com/OpenjusticeB"
@@ -115,9 +115,16 @@ export default {
 </script>
 
 <style scoped>
+#global_count {
+  padding-bottom: 40px;
+    padding-top: 40px;
+
+}
+
 h3 {
   margin: 40px 0 0;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
