@@ -3,6 +3,7 @@ import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import Court from "@/views/Court.vue";
 import Document from "@/views/Document.vue";
+import Stats from "@/views/Stats.vue";
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     path: "/BE/:court/:year/:document",
     name: "Document",
     component: Document,
+  },
+  {
+    path: "/stats",
+    name: "Stats",
+    component: Stats,
   },
 
 ];
