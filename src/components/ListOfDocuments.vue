@@ -27,7 +27,7 @@
           </li>
         </ul>
       </nav>
-      <table class="table">
+      <table class="table small">
         <thead>
           <th>Ref</th>
           <th>Source</th>

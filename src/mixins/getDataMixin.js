@@ -28,6 +28,9 @@ export default {
             page_url = process.env.VUE_APP_REST_API_URL + this.$route.fullPath; // If !Homepage
           }
         }
+        if (page_url.match('^http://')){
+          page_url = page_url.replace("http://","https://")
+        }
         axios.get(page_url, {
             headers: {
               Accept: "application/json",
