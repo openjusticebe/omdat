@@ -27,45 +27,39 @@
           </li>
         </ul>
       </nav>
-      <table class="table small">
-        <thead>
-          <th>Ref</th>
-          <th>Source</th>
-        </thead>
-        <tbody>
-          <tr v-for="(item, index) in fields.data" :key="index">
-            <td class="text-left">
-              <dl>
-                <dt>ECLI</dt>
-                <dd>
-                  <code>{{ item.ecli }}</code>
-                </dd>
-                <dt>Reference</dt>
-                <dd>{{ item.type_num }}</dd>
-                <dt>Type</dt>
-                <dd>{{ item.type }}</dd>
-                <dt>Lang</dt>
-                <dd>{{ item.lang }}</dd>
-                <dt>Link</dt>
-                <dd>
-                  <a :href="item.ref">{{ item.ecli }}</a>
-                </dd>
-              </dl>
-            </td>
-            <td>
-              {{ item.src }}
-              <dl v-for="(link, index) in item.links" :key="index">
-                <dt>
-                  <code>{{ link.rel }}</code>
-                </dt>
-                <dd>
-                  <a :href="link.href">{{ link.href }}</a>
-                </dd>
-              </dl>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover table-sm">
+          <caption>
+            List of users
+          </caption>
+          <thead>
+            <th scope="col">ECLI</th>
+            <th scope="col">Lang</th>
+            <th scope="col">Source</th>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) in fields.data" :key="index">
+              <th class="text-left" scope="row">
+                <a :href="item.ref">{{ item.ecli }}</a>
+              </th>
+              <td>
+                {{ item.lang }}
+              </td>
+              <td>
+                <span v-for="(link, index) in item.links" :key="index">
+                  <a
+                    :href="link.href"
+                    :alt="link.rel"
+                    class="btn btn-primary btn-sm"
+                    >{{ link.rel }} 🗂️</a
+                  >
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
           <li

@@ -48,7 +48,7 @@
         >
         |
         <a
-          href="https://ecli.openjustice.be/docs"
+          href="https://api-ecli.openjustice.lltl.be/api-docs.html"
           target="_blank"
           rel="noopener"
           >API Doc</a
@@ -117,8 +117,7 @@ export default {
 <style scoped>
 #global_count {
   padding-bottom: 40px;
-    padding-top: 40px;
-
+  padding-top: 40px;
 }
 
 h3 {

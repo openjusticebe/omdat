@@ -2,14 +2,50 @@
   <div v-if="!data_fetched">
     <loading-animation />
   </div>
-  <div v-else class="container">
+  <div v-else class="container text-left">
     <h1>
       {{ fields.data.name }}
-      <small class="text-muted">{{ $route.params.court }}</small>
+      <small class="text-muted">
+        {{ $route.params.court }}
+      </small>
     </h1>
     <hr />
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-2">
+        <h2>Year</h2>
+        <div
+          v-for="(item, index) in fields.data.docs_per_year"
+          :key="index"
+          class="form-check"
+        >
+          <input
+            type="checkbox"
+            class="form-check-input"
+            :id="item.year"
+            checked
+          />
+          <label class="form-check-label" :for="item.year">
+            {{ item.year }}</label
+          >
+        </div>
+
+        <h2>Type</h2>
+        <ul>
+          <li v-for="(item, index) in fields.data.docs_per_type" :key="index">
+            <input class="form-check-input" type="checkbox" checked />
+
+            {{ item.type }}
+          </li>
+        </ul>
+        <h2>Lang</h2>
+        <ul>
+          <li v-for="(item, index) in fields.data.docs_per_lang" :key="index">
+            <input class="form-check-input" type="checkbox" checked />
+            {{ item.lang }}
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-10">
         <div class="row">
           <div class="card">
             <h5 class="card-header">Documents per year</h5>
@@ -18,22 +54,6 @@
                 :labels="fields.data.docs_per_year.map((a) => a.year)"
                 :serie="fields.data.docs_per_year.map((a) => a.count)"
               />
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  Year available {{ fields.data.first_year }} -
-                  {{ fields.data.last_year }}
-                </li>
-                <li class="list-group-item">
-                  <span
-                    v-for="(item, index) in fields.data.docs_per_year"
-                    :key="index"
-                  >
-                    <template v-if="index > 0"> — </template>
-
-                    <span class="text-primary">{{ item.year }}</span>
-                  </span>
-                </li>
-              </ul>
             </div>
           </div>
           <div class="card-columns">
@@ -68,8 +88,6 @@
             </div>
           </div>
         </div>
-
-        <h3>Browse</h3>
       </div>
       <div class="col-md-12">
         <ListOfDocuments

@@ -28,6 +28,7 @@ export default {
             page_url = process.env.VUE_APP_REST_API_URL + this.$route.fullPath; // If !Homepage
           }
         }
+        // fix if API doesn't provide https -- should be solved in API directly
         if (page_url.match('^http://')){
           page_url = page_url.replace("http://","https://")
         }
