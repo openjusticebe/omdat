@@ -4,7 +4,7 @@
   </div>
   <div v-else class="container">
     <h1>
-      {{ fields.data.type_num }}
+      {{ fields.data.type_identifier }}
       <em class="text-muted">from</em>
       {{ fields.data.court.name }} <em class="text-muted">in</em>
       {{ fields.data.lang }}
@@ -27,9 +27,9 @@
               <dt>Year</dt>
               <dd>{{ fields.data.year }}</dd>
               <dt>Ref</dt>
-              <dd>{{ fields.data.type_num }}</dd>
-              <dt>Num</dt>
-              <dd>{{ fields.data.num }}</dd>
+              <dd>{{ fields.data.type_identifier }}</dd>
+              <dt>Identifier</dt>
+              <dd>{{ fields.data.identifier }}</dd>
               <dt>Type</dt>
               <dd>{{ fields.data.type }}</dd>
               <dt>Lang</dt>
