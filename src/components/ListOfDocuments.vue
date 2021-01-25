@@ -1,26 +1,27 @@
 <template>
   <div>
-    <div class="card" v-if="data_fetched">
-      <h5 class="card-header">Recent case law</h5>
-      <nav aria-label="Page navigation example">
+    <div v-if="data_fetched">
+      <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
           <li
             class="page-item"
             v-for="(nav, index) in fields.meta.links"
             :key="index"
+            :class="{ active: nav.active }"
           >
             <a
               class="page-link"
               @click="reload(nav.url)"
               v-if="nav.label === 'pagination.previous'"
-              >Previous</a
+              >&laquo;</a
             >
             <a
               class="page-link"
               @click="reload(nav.url)"
               v-else-if="nav.label === 'pagination.next'"
-              >Next</a
+              >&raquo;</a
             >
+
             <a class="page-link" @click="reload(nav.url)" v-else>{{
               nav.label
             }}</a>
@@ -29,9 +30,6 @@
       </nav>
       <div class="table-responsive">
         <table class="table table-striped table-hover table-sm">
-          <caption>
-            List of users
-          </caption>
           <thead>
             <th scope="col">ECLI</th>
             <th scope="col">Lang</th>
@@ -60,7 +58,7 @@
         </table>
       </div>
 
-      <nav aria-label="Page navigation example">
+      <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
           <li
             class="page-item"

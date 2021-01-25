@@ -30,66 +30,76 @@
         </div>
 
         <h2>Type</h2>
-        <ul>
-          <li v-for="(item, index) in fields.data.docs_per_type" :key="index">
-            <input class="form-check-input" type="checkbox" checked />
+        <div
+          v-for="(item, index) in fields.data.docs_per_type"
+          :key="index"
+          class="form-check"
+        >
+          <input
+            class="form-check-input"
+            type="checkbox"
+            :id="item.type"
+            checked
+          />
+          <label class="form-check-label" :for="item.type">
+            {{ item.type }}</label
+          >
+        </div>
 
-            {{ item.type }}
-          </li>
-        </ul>
         <h2>Lang</h2>
-        <ul>
-          <li v-for="(item, index) in fields.data.docs_per_lang" :key="index">
-            <input class="form-check-input" type="checkbox" checked />
-            {{ item.lang }}
-          </li>
-        </ul>
+        <div
+          v-for="(item, index) in fields.data.docs_per_lang"
+          :key="index"
+          class="form-check"
+        >
+          <input
+            class="form-check-input"
+            type="checkbox"
+            :id="item.lang"
+            checked
+          />
+          <label class="form-check-label" :for="item.lang">
+            {{ item.lang }}</label
+          >
+        </div>
       </div>
       <div class="col-md-10">
-        <div class="row">
-          <div class="card">
-            <h5 class="card-header">Documents per year</h5>
-            <div class="card-body">
-              <BarChart
-                :labels="fields.data.docs_per_year.map((a) => a.year)"
-                :serie="fields.data.docs_per_year.map((a) => a.count)"
-              />
-            </div>
-          </div>
-          <div class="card-columns">
-            <div class="card">
-              <h5 class="card-title">Count documents per type</h5>
-              <div class="card-body">
-                <PieChart
-                  :labels="fields.data.docs_per_type.map((a) => a.type)"
-                  :serie="fields.data.docs_per_type.map((a) => a.count)"
-                />
+        <div class="card">
+          <h5 class="card-header">Documents per year</h5>
+          <div class="card-body">
+            <BarChart
+              :labels="fields.data.docs_per_year.map((a) => a.year)"
+              :serie="fields.data.docs_per_year.map((a) => a.count)"
+            />
 
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    Type : {{ fields.data.docs_per_type.map((a) => a.type) }}
-                  </li>
-                </ul>
-              </div>
+            <div class="card-columns">
+              <h5>Count documents per type</h5>
+              <PieChart
+                :labels="fields.data.docs_per_type.map((a) => a.type)"
+                :serie="fields.data.docs_per_type.map((a) => a.count)"
+              />
+
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  Type : {{ fields.data.docs_per_type.map((a) => a.type) }}
+                </li>
+              </ul>
             </div>
-            <div class="card">
-              <h5 class="card-title">Count documents per lang</h5>
-              <div class="card-body">
-                <PieChart
-                  :labels="fields.data.docs_per_lang.map((a) => a.lang)"
-                  :serie="fields.data.docs_per_lang.map((a) => a.count)"
-                />
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    Type : {{ fields.data.docs_per_lang.map((a) => a.lang) }}
-                  </li>
-                </ul>
-              </div>
+
+            <div class="card-columns">
+              <h5>Count documents per lang</h5>
+              <PieChart
+                :labels="fields.data.docs_per_lang.map((a) => a.lang)"
+                :serie="fields.data.docs_per_lang.map((a) => a.count)"
+              />
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  Type : {{ fields.data.docs_per_lang.map((a) => a.lang) }}
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-12">
         <ListOfDocuments
           :page_url="
             env.VUE_APP_REST_API_URL +

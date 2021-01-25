@@ -5,9 +5,9 @@
   <div v-else class="container">
     <h1>
       {{ fields.data.type_identifier }}
-      <em class="text-muted">from</em>
-      {{ fields.data.court.name }} <em class="text-muted">in</em>
-      {{ fields.data.lang }}
+      <em class="text-muted">&laquo;</em>
+      {{ fields.data.court.name }}
+      <em class="text-muted">({{ fields.data.lang }})</em>
     </h1>
     <div class="card">
       <h5 class="card-header">
