@@ -64,19 +64,21 @@
             class="page-item"
             v-for="(nav, index) in fields.meta.links"
             :key="index"
+            :class="{ active: nav.active }"
           >
             <a
               class="page-link"
               @click="reload(nav.url)"
               v-if="nav.label === 'pagination.previous'"
-              >Previous</a
+              >&laquo;</a
             >
             <a
               class="page-link"
               @click="reload(nav.url)"
               v-else-if="nav.label === 'pagination.next'"
-              >Next</a
+              >&raquo;</a
             >
+
             <a class="page-link" @click="reload(nav.url)" v-else>{{
               nav.label
             }}</a>

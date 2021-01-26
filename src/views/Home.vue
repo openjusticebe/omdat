@@ -18,7 +18,7 @@
           />
           <div class="input-group-append">
             <button class="btn btn-primary" type="button" disabled>
-              Search <i class="fa fa-search"></i>
+              Search 🔎
             </button>
           </div>
         </div>
@@ -80,11 +80,7 @@
           <a :href="'BE/' + court.acronym"
             ><strong>{{ court.name }}</strong></a
           >
-          <!-- <small
-            >{{ court.count_total }}📄 {{ court.first_year }}—{{
-              court.last_year
-            }}
-          </small> -->
+          <sup class="text-muted small"> ({{ court.count_total }}) </sup>
         </span>
       </div>
     </div>

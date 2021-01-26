@@ -31,6 +31,16 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a
+                  href="https://outil.openjustice.be/"
+                  _target="blank"
+                  class="btn btn-success"
+                >
+                  📤 Upload a decision
+                </a>
+              </li>
+
               <!-- Authentication Links -->
               <!-- <li class="nav-item">
                 <a href="/login" class="btn disabled">
@@ -74,7 +84,6 @@
 </template>
 
 <script>
-
 export default {
   name: "App",
 

@@ -13,6 +13,10 @@
     <div class="row">
       <div class="col-md-2">
         <h2>Year</h2>
+        {{ yearsArray.checked }}
+        <button @click="clearCheckedYear()" class="small btn btn-sm btn-link">
+          [deselect all]
+        </button>
         <div
           v-for="(item, index) in fields.data.docs_per_year"
           :key="index"
@@ -22,11 +26,17 @@
             type="checkbox"
             class="form-check-input"
             :id="item.year"
+            v-model="item.checked"
             checked
           />
-          <label class="form-check-label" :for="item.year">
-            {{ item.year }}</label
+          <label
+            class="form-check-label"
+            :for="item.year"
+            alt="{{ item.count }} documents"
           >
+            {{ item.year }}
+            <sup class="text-muted small">({{ item.count }})</sup>
+          </label>
         </div>
 
         <h2>Type</h2>
@@ -65,7 +75,7 @@
       </div>
       <div class="col-md-10">
         <div class="card">
-          <h5 class="card-header">Documents per year</h5>
+          <h5 class="card-header">Statistics</h5>
           <div class="card-body">
             <BarChart
               :labels="fields.data.docs_per_year.map((a) => a.year)"
@@ -74,16 +84,11 @@
 
             <div class="card-columns">
               <h5>Count documents per type</h5>
+
               <PieChart
                 :labels="fields.data.docs_per_type.map((a) => a.type)"
                 :serie="fields.data.docs_per_type.map((a) => a.count)"
               />
-
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  Type : {{ fields.data.docs_per_type.map((a) => a.type) }}
-                </li>
-              </ul>
             </div>
 
             <div class="card-columns">
@@ -92,11 +97,6 @@
                 :labels="fields.data.docs_per_lang.map((a) => a.lang)"
                 :serie="fields.data.docs_per_lang.map((a) => a.count)"
               />
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  Type : {{ fields.data.docs_per_lang.map((a) => a.lang) }}
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -123,13 +123,20 @@ export default {
     page_url: String,
   },
   data() {
-    return {};
+    return {
+      yearsArray: {},
+    };
   },
   methods: {
     reload(page_url) {
       if (page_url) {
         this.fetchData(page_url);
       }
+    },
+    clearCheckedYear() {
+      this.yearsArray = this.fields.data.docs_per_year.filter(
+        (x) => !x.checked
+      );
     },
   },
 
