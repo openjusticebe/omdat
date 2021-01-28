@@ -5,55 +5,28 @@
   <div v-else class="container">
     <h1>
       {{ fields.data.type_identifier }}
-      <em class="text-muted">&laquo;</em>
+      <small class="text-muted">&laquo;</small>
       {{ fields.data.court.name }}
       <em class="text-muted">({{ fields.data.lang }})</em>
     </h1>
     <div class="card">
-      <h5 class="card-header">
+      <h5 class="card-header text-right">
         <code>{{ fields.data.ecli }}</code>
-        <small class="text-muted"> </small>
+        <br />
+        <small class="text-muted"
+          ><a :href="fields.data.link"
+            ><small class="text-muted">{{ fields.data.link }}</small>
+          </a></small
+        >
       </h5>
       <div class="card-body">
         <div class="row">
           <div class="col-md-8">
-            <dl class="text-left">
-              <dt>Court</dt>
-              <dd>
-                <a :href="fields.data.court.ref">{{
-                  fields.data.court.name
-                }}</a>
-              </dd>
-              <dt>Year</dt>
-              <dd>{{ fields.data.year }}</dd>
-              <dt>Ref</dt>
-              <dd>{{ fields.data.type_identifier }}</dd>
-              <dt>Identifier</dt>
-              <dd>{{ fields.data.identifier }}</dd>
-              <dt>Type</dt>
-              <dd>{{ fields.data.type }}</dd>
-              <dt>Lang</dt>
-              <dd>{{ fields.data.lang }}</dd>
-            </dl>
-
-            <ul class="text-left">
-              <li v-for="(link, index) in fields.data.links" :key="index">
-                <span v-if="link.rel == 'meta'"
-                  ><a :href="link.href">
-                    {{ link.rel }}
-                  </a>
-                  permalink: <small class="text-muted">{{ link.href }}</small>
-                </span>
-                <span v-else>
-                  <a :href="link.href">
-                    {{ link.rel }}
-                  </a>
-                  permalink:
-                  <small class="text-muted">{{ link.href }}</small>
-                </span>
-              </li>
-            </ul>
+            <div class="text-left">
+              <vue3-markdown-it :source="fields.data.text" />
+            </div>
           </div>
+
           <div class="col-md-4">
             <div class="card" style="width: 8rem">
               <a :href="fields.data.court.ref">

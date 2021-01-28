@@ -3,13 +3,14 @@ import App from './App.vue'
 import router from './router'
 import 'bootstrap'
 import VueApexCharts from "vue3-apexcharts";
+import VueMarkdownIt from 'vue3-markdown-it';
 
 import "./assets/styles/custom.scss";
 
 const app = createApp(App)
 
 app.use(VueApexCharts);
-
+app.use(VueMarkdownIt);
 
 // Register every components in ./components DIR
 const files = require.context('./components/', true, /\.vue$/i)
