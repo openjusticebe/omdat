@@ -35,7 +35,7 @@
                 <a
                   href="https://outil.openjustice.be/"
                   _target="blank"
-                  class="btn btn-success"
+                  class="btn btn-default"
                 >
                   📤 Upload a decision
                 </a>
