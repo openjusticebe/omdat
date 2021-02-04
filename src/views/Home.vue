@@ -64,11 +64,20 @@
   <div class="container" v-else>
     <div class="row">
       <div class="col-12">
-        <h3>{{ fields.data.title }}</h3>
+        <!-- <ul>
+          <li
+            v-for="(field, index) in fields.data.recent_documents.documents"
+            :key="index"
+            class="col-md-4"
+          >
+            {{ field.ecli }}
+          </li>
+        </ul> -->
+        <h3>{{ fields.data.court_categories.title }}</h3>
         <hr />
       </div>
       <div
-        v-for="(field, index) in fields.data.categories"
+        v-for="(field, index) in fields.data.court_categories.categories"
         :key="index"
         class="col-md-4"
       >
