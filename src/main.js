@@ -18,5 +18,10 @@ console.log(files);
 files.keys().map(key => app.component(key.split('/').pop().split('.')[0], files(key).default))
 
 
+router.beforeEach((toRoute, fromRoute, next) => {
+    window.document.title = toRoute.meta && toRoute.meta.title ? toRoute.meta.title : 'Home';
+    next();
+  })
+  
 
 app.use(router).mount('#app')
