@@ -3,10 +3,7 @@
     <main class="py-0">
       <nav class="navbar navbar-expand-md navbar-light top">
         <div class="container">
-          <a
-            class="navbar-brand text-primary font-weight-bold"
-            href="https://openjustice.be"
-          >
+          <a class="navbar-brand text-primary font-weight-bold" href="/">
             <img src="./assets/images/oj.png" width="120" />
           </a>
 
