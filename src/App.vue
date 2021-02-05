@@ -3,7 +3,10 @@
     <main class="py-0">
       <nav class="navbar navbar-expand-md navbar-light top">
         <div class="container">
-          <a class="navbar-brand text-primary font-weight-bold" href="/">
+          <a
+            class="navbar-brand text-primary font-weight-bold"
+            href="https://openjustice.be"
+          >
             <img src="./assets/images/oj.png" width="120" />
           </a>
 
@@ -23,7 +26,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <!-- <a class="nav-link" href="/"> Home </a> -->
+                <a class="nav-link" href="/">🏠 Home </a>
               </li>
             </ul>
 

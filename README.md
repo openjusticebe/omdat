@@ -1,11 +1,6 @@
 # Omdat - ECLI frontend of OpenJustice.be
 
-🚧 Under construction 🚧
-
-Frontend of ECLI API : <https://github.com/openjusticebe/ecli>
-
-# Credits
-- Project led by **OpenJustice.be** in collaboration with Liège Legal Tech Lab of **[University of Liège](https://legaltech.uliege.be/)** 🎓.
+Frontend of **ECLI API** : <https://github.com/openjusticebe/ecli-api>
 
 ## Build Setup without Docker
 
@@ -28,8 +23,11 @@ $ yarn generate
 
 ```bash
 # build image
-docker build -t ecli-frontend .
+docker build -t omdat .
 
 # ... and launch server
-docker run -it -p 80:80 ecli-frontend
+docker run -it -p 80:80 omdat
 ```
+
+# Credits
+- Project led by **OpenJustice.be** in collaboration with [Liège Legal Tech Lab](https://legaltech.uliege.be/) of **University of Liège**🎓.

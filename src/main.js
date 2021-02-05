@@ -12,6 +12,7 @@ const app = createApp(App)
 app.use(VueApexCharts);
 app.use(VueMarkdownIt);
 
+
 // Register every components in ./components DIR
 const files = require.context('./components/', true, /\.vue$/i)
 console.log(files);
