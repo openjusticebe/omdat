@@ -179,11 +179,6 @@ export default {
         this.fetchData(page_url);
       }
     },
-    // clearCheckedYear() {
-    //   this.yearsArray = this.fields.data.docs_per_year.filter(
-    //     (x) => !x.checked
-    //   );
-    // },
   },
 
   mounted() {

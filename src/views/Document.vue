@@ -19,7 +19,7 @@
           </a></small
         >
       </h5>
-      <div class="card-body">
+      <div class="card-body text-left">
         <div class="row">
           <div class="col-md-8">
             <dl
@@ -31,7 +31,7 @@
               <dd class="col-sm-9">{{ metadata[1] ?? "" }}</dd>
             </dl>
 
-            <div class="text-left">
+            <div>
               <vue3-markdown-it :source="fields.data.text" />
             </div>
           </div>
@@ -62,6 +62,10 @@
     </div>
   </div>
 </template>
+
+<style>
+</style>
+
 <script>
 import getDataMixin from "../mixins/getDataMixin";
 
