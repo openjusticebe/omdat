@@ -1,33 +1,8 @@
 <template>
   <div>
     <div v-if="data_fetched">
-      <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-          <li
-            class="page-item"
-            v-for="(nav, index) in fields.meta.links"
-            :key="index"
-            :class="{ active: nav.active }"
-          >
-            <a
-              class="page-link"
-              @click="reload(nav.url)"
-              v-if="nav.label === 'pagination.previous'"
-              >&laquo;</a
-            >
-            <a
-              class="page-link"
-              @click="reload(nav.url)"
-              v-else-if="nav.label === 'pagination.next'"
-              >&raquo;</a
-            >
+      <nav-pagination :links="fields.meta.links" />
 
-            <a class="page-link" @click="reload(nav.url)" v-else>{{
-              nav.label
-            }}</a>
-          </li>
-        </ul>
-      </nav>
       <div class="table-responsive">
         <table class="table table-striped table-hover table-sm">
           <thead>
@@ -57,34 +32,7 @@
           </tbody>
         </table>
       </div>
-
-      <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-          <li
-            class="page-item"
-            v-for="(nav, index) in fields.meta.links"
-            :key="index"
-            :class="{ active: nav.active }"
-          >
-            <a
-              class="page-link"
-              @click="reload(nav.url)"
-              v-if="nav.label === 'pagination.previous'"
-              >&laquo;</a
-            >
-            <a
-              class="page-link"
-              @click="reload(nav.url)"
-              v-else-if="nav.label === 'pagination.next'"
-              >&raquo;</a
-            >
-
-            <a class="page-link" @click="reload(nav.url)" v-else>{{
-              nav.label
-            }}</a>
-          </li>
-        </ul>
-      </nav>
+      <nav-pagination :links="fields.meta.links" />
     </div>
   </div>
 </template>
