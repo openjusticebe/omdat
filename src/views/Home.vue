@@ -1,6 +1,6 @@
 <template>
   <section class="text-center top" style="padding-top: 200px">
-    <h1 class="display-3 font-weight-normal" v-html="env.VUE_APP_NAME"></h1>
+    <img src="../assets/images/omdat-by-oj.png" />
     <p
       class="lead text-muted font-weight-normal"
       v-html="env.VUE_APP_TAGLINE"

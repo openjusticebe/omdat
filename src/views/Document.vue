@@ -22,6 +22,15 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-8">
+            <dl
+              v-for="(metadata, index) in fields.data.meta"
+              :key="index"
+              class="row"
+            >
+              <dt class="col-sm-3">{{ metadata[0] ?? "" }}</dt>
+              <dd class="col-sm-9">{{ metadata[1] ?? "" }}</dd>
+            </dl>
+
             <div class="text-left">
               <vue3-markdown-it :source="fields.data.text" />
             </div>

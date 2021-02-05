@@ -34,9 +34,11 @@ $warning: #FFD195;
 $danger: #C0392B;
 $default: #FFD195;
 
+$oj-purple: #5b397e; // purple OJ
+$oj-green: #2ab3a8; // green OJ
+$oj-black: #2c3e50;
 
 $bg-warning: #FFD195;
-
 
 $primary: $blue;
 $secondary: $orange;
@@ -46,7 +48,7 @@ $secondary: $orange;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: $oj-black;
   background-color: white;
 }
 
