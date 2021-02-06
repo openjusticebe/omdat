@@ -1,6 +1,10 @@
 <template>
   <section class="text-center top" style="padding-top: 200px">
-    <img src="../assets/images/omdat-by-oj.png" class="img-responsive" />
+    <img
+      src="../assets/images/omdat-by-oj.png"
+      class="img-fluid"
+      alt="Omdat Logo"
+    />
     <p
       class="lead text-muted font-weight-normal"
       v-html="env.VUE_APP_TAGLINE"
