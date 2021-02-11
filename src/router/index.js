@@ -4,6 +4,7 @@ import About from "@/views/About.vue";
 import Court from "@/views/Court.vue";
 import Document from "@/views/Document.vue";
 import Stats from "@/views/Stats.vue";
+import Search from "@/views/Search.vue";
 
 var base_title = "Omdat ::";
 
@@ -14,6 +15,14 @@ const routes = [
     component: Home,
     meta: {
       title: "Welcome to Omdat"
+    },
+  },
+  {
+    path: "/search/:needle",
+    name: "Search {{ needle }} ",
+    component: Search,
+    meta: {
+      title: base_title + "Search"
     },
   },
   {

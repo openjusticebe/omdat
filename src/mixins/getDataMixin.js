@@ -18,14 +18,13 @@ export default {
       this.fetchData(this.page_url);
     },
     methods: {
-        
       fetchData(page_url){
         if (page_url == null) { // If page_url not specified
           if(this.$route.fullPath == '/') {
-            page_url = process.env.VUE_APP_REST_API_URL + '/BE/'; // If homepage --> default API with /BE
+            page_url = process.env.VUE_APP_REST_API_URL + '/ECLI/BE/'; // If homepage --> default API with /BE
           }
           else {
-            page_url = process.env.VUE_APP_REST_API_URL + this.$route.fullPath; // If !Homepage
+            page_url = process.env.VUE_APP_REST_API_URL + '/ECLI' + this.$route.fullPath; // If !Homepage
           }
         }
         // fix if API doesn't provide https -- should be solved in API directly

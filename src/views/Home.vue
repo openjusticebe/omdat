@@ -66,8 +66,10 @@
             :key="index"
             class="col-md-5 small"
           >
-            <a :href="field.ref"> {{ field.ecli }}</a>
-            <small class="text-muted"> {{ field.updated_at_diff }}</small>
+            <a :href="field.ref" class="text-primary font-weight-bold">{{
+              field.ecli
+            }}</a>
+            <small class="text-muted"> — {{ field.updated_at_diff }}</small>
           </li>
         </ul>
         <h3>🏢 {{ fields.data.court_categories.title }}</h3>
@@ -83,9 +85,9 @@
         <span v-for="(court, index) in field.courts" :key="index">
           <template v-if="index > 0"> — </template>
 
-          <a :href="'BE/' + court.acronym"
-            ><strong>{{ court.name }}</strong></a
-          >
+          <a :href="'BE/' + court.acronym" class="font-weight-bold">{{
+            court.name
+          }}</a>
           <sup class="text-muted small"> ({{ court.count_total }}) </sup>
         </span>
       </div>

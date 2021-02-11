@@ -185,7 +185,7 @@ export default {
     this.env = process.env;
     this.page_url_list_doc =
       this.env.VUE_APP_REST_API_URL +
-      "/BE/" +
+      "/ECLI/BE/" +
       this.$route.params.court +
       "/docsRecent";
   },
