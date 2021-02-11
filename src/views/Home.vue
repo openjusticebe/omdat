@@ -13,19 +13,8 @@
     <!-- Search button -->
     <div class="row">
       <div class="col-6 offset-3">
-        <div class="input-group">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Not yet implemented"
-            disabled
-          />
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button" disabled>
-              Search 🔎
-            </button>
-          </div>
-        </div>
+        <small>{{ query }}</small>
+        <search-input />
       </div>
     </div>
     <div class="row" id="global_count">
@@ -68,7 +57,9 @@
   <div class="container" v-else>
     <div class="row">
       <div class="col-12">
-        <h3>{{ fields.data.recent_documents.title }}</h3>
+        <h3>📃 {{ fields.data.recent_documents.title }}</h3>
+        <hr />
+
         <ul>
           <li
             v-for="(field, index) in fields.data.recent_documents.documents"
@@ -76,10 +67,10 @@
             class="col-md-5 small"
           >
             <a :href="field.ref"> {{ field.ecli }}</a>
-            <small> {{ field.updated_at_diff }}</small>
+            <small class="text-muted"> {{ field.updated_at_diff }}</small>
           </li>
         </ul>
-        <h3>{{ fields.data.court_categories.title }}</h3>
+        <h3>🏢 {{ fields.data.court_categories.title }}</h3>
         <hr />
       </div>
       <div
