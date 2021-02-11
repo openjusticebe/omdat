@@ -30,4 +30,4 @@ docker run -it -p 80:80 omdat
 ```
 
 # Credits
-- Project led by **OpenJustice.be** in collaboration with [Liège Legal Tech Lab](https://legaltech.uliege.be/) of **University of Liège**🎓.
+Project led by **OpenJustice.be** in collaboration with [Liège Legal Tech Lab](https://legaltech.uliege.be/) of **University of Liège**🎓.

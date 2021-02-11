@@ -68,15 +68,17 @@
   <div class="container" v-else>
     <div class="row">
       <div class="col-12">
-        <!-- <ul>
+        <h3>{{ fields.data.recent_documents.title }}</h3>
+        <ul>
           <li
             v-for="(field, index) in fields.data.recent_documents.documents"
             :key="index"
-            class="col-md-4"
+            class="col-md-5 small"
           >
-            {{ field.ecli }}
+            <a :href="field.ref"> {{ field.ecli }}</a>
+            <small> {{ field.updated_at_diff }}</small>
           </li>
-        </ul> -->
+        </ul>
         <h3>{{ fields.data.court_categories.title }}</h3>
         <hr />
       </div>
