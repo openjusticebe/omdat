@@ -1,5 +1,7 @@
 <template>
-  <h1>Search <small></small></h1>
+  <h1>
+    🔍 Results <small class="text-muted">{{ $route.params.needle }}</small>
+  </h1>
   <search-results :page_url="page_url_search" />
 </template>
 

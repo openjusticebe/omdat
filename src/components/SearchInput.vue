@@ -1,18 +1,26 @@
 <template>
-  <div class="input-group">
-    <input
-      class="form-control"
-      type="text"
-      placeholder="Enter your query"
-      aria-label="Search"
-      v-model="query"
-    />
-    <div class="input-group-append">
-      <a :href="'/search/' + query" class="btn btn-primary" v-if="query">
-        Search 🔎
-      </a>
+  <form :action="'/search/' + query" method="get">
+    <div class="input-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Enter your query"
+        aria-label="Search"
+        v-model="query"
+      />
+      <div class="input-group-append">
+        <button
+          :href="'/search/' + query"
+          class="btn btn-primary"
+          v-if="query"
+          type="submit"
+        >
+          Search 🔎
+        </button>
+      </div>
     </div>
-  </div>
+  </form>
+
   <small v-if="query" class="form-text text-muted">
     Search for <code>{{ query }}</code></small
   >
