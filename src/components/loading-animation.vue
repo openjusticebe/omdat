@@ -8,7 +8,7 @@
     </div>
     <img
       src="https://raw.githubusercontent.com/openjusticebe/ui-assets/main/svg/OpenJustice.be_RRI_loading.svg"
-      alt=""
+      alt="Loading..."
     />
 
     <div class="spinner-grow text-secondary" role="status">

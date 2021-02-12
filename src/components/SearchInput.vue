@@ -9,12 +9,7 @@
         v-model="query"
       />
       <div class="input-group-append">
-        <button
-          :href="'/search/' + query"
-          class="btn btn-primary"
-          v-if="query"
-          type="submit"
-        >
+        <button class="btn btn-primary" v-if="query" type="submit">
           Search 🔎
         </button>
       </div>

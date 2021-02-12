@@ -15,7 +15,10 @@
             - <code class="small">{{ hit._score }}</code>
             {{ hit._source.year }}
           </h4>
-          <!-- <div v-html="highlight(hit._source.text, $route.params.needle)"></div> -->
+
+          <div v-for="(light, index2) in hit.highlight.text" :key="index2">
+            <span v-html="light" class="small"></span>
+          </div>
         </li>
       </ul>
     </div>
@@ -49,16 +52,6 @@ export default {
       if (page_url) {
         this.fetchData(page_url);
       }
-    },
-    highlight(text, needle) {
-      if (!needle) {
-        return text;
-      }
-      // gi = Global + case Insensitive match
-      let result = text.replace(new RegExp(needle, "gi"), (match) => {
-        return '<span class="highlightText">' + match + "</span>";
-      });
-      return result;
     },
   },
 };
