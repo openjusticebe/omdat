@@ -12,13 +12,13 @@
         <li>
           <h4>
             <a :href="hit._source.ref">{{ hit._source.ecli }}</a>
-            - <code class="small">{{ hit._score }}</code>
-            {{ hit._source.year }}
+            - <code class="small">Score: {{ hit._score }}</code>
           </h4>
 
-          <div v-for="(light, index2) in hit.highlight.text" :key="index2">
+          <span v-for="(light, idx) in hit.highlight.text" :key="idx">
+            <template v-if="idx > 0"> — </template>
             <span v-html="light" class="small"></span>
-          </div>
+          </span>
         </li>
       </ul>
     </div>

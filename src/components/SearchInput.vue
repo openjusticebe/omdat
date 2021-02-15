@@ -1,5 +1,5 @@
 <template>
-  <form :action="'/search/' + query" method="get">
+  <form :action="'/search/' + parseInput" method="get">
     <div class="input-group">
       <input
         class="form-control"
@@ -8,6 +8,7 @@
         aria-label="Search"
         v-model="query"
       />
+
       <div class="input-group-append">
         <button class="btn btn-primary" v-if="query" type="submit">
           Search 🔎
@@ -17,7 +18,7 @@
   </form>
 
   <small v-if="query" class="form-text text-muted">
-    Search for <code>{{ query }}</code></small
+    Search for <code>{{ parseInput }}</code></small
   >
 </template>
 
@@ -29,10 +30,14 @@ export default {
   mounted() {},
   data() {
     return {
-      query: null,
+      query: "",
     };
   },
 
-  computed: {},
+  computed: {
+    parseInput() {
+      return this.query.split(" ").join("+");
+    },
+  },
 };
 </script>
