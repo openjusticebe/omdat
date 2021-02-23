@@ -6,10 +6,10 @@
     <div class="spinner-grow text-secondary" role="status">
       <span class="sr-only">Loading...</span>
     </div>
-    <img
+    <!-- <img
       src="https://raw.githubusercontent.com/openjusticebe/ui-assets/main/svg/OpenJustice.be_RRI_loading.svg"
       alt="Loading..."
-    />
+    /> -->
 
     <div class="spinner-grow text-secondary" role="status">
       <span class="sr-only">Loading...</span>

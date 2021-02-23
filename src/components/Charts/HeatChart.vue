@@ -1,5 +1,8 @@
 <template>
   <div class="example">
+    <code>
+      {{ api_data }}
+    </code>
     <apexchart
       width="900"
       height="900"
