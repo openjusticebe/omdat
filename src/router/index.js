@@ -3,7 +3,7 @@ import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import Court from "@/views/Court.vue";
 import Document from "@/views/Document.vue";
-import Stats from "@/views/Stats.vue";
+import Statistics from "@/views/Statistics.vue";
 import Search from "@/views/Search.vue";
 
 var base_title = "Omdat ::";
@@ -52,11 +52,11 @@ const routes = [
     },
   },
   {
-    path: "/stats",
-    name: "Stats",
-    component: Stats,
+    path: "/statistics",
+    name: "Statistics",
+    component: Statistics,
     meta: {
-      title: base_title + " Stats"
+      title: base_title + " Statistics"
     },
   },
 

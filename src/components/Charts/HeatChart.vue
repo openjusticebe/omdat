@@ -1,11 +1,8 @@
 <template>
-  <div class="example">
-    <code>
-      {{ api_data }}
-    </code>
+  <div class="">
     <apexchart
-      width="900"
-      height="900"
+      width="1000"
+      height="1500"
       type="heatmap"
       :options="chartOptions"
       :series="series"
@@ -17,7 +14,7 @@
 export default {
   props: ["api_data"],
 
-  name: "HeatmapExample",
+  name: "Heatmap",
 
   data: function () {
     return {
@@ -25,7 +22,7 @@ export default {
         dataLabels: {
           enabled: false,
         },
-        colors: ["#344c77"],
+        colors: ["#2ab3a8"],
 
         xaxis: {
           type: "Courts",
@@ -34,62 +31,37 @@ export default {
           text: "HeatMap of court",
         },
       },
-      series: [
-        {
-          name: "Metric1",
-          data: this.generateData(20, {
-            min: 0,
-            max: 90,
-          }),
-        },
-        {
-          name: "Metric2",
-          data: this.generateData(20, {
-            min: 0,
-            max: 90,
-          }),
-        },
-        {
-          name: "Metric3",
-          data: this.generateData(20, {
-            min: 0,
-            max: 90,
-          }),
-        },
-        {
-          name: "Metric4",
-          data: this.generateData(20, {
-            min: 0,
-            max: 90,
-          }),
-        },
-        {
-          name: "Metric5",
-          data: this.generateData(20, {
-            min: 0,
-            max: 90,
-          }),
-        },
-      ],
+      series: this.arrangeSeries(this.api_data),
     };
   },
   methods: {
-    generateData(count, yrange) {
+    arrangeSeries(api_data) {
       var i = 0;
       var series = [];
-      while (i < count) {
-        var x = (i + 1).toString();
-        var y =
-          Math.floor(Math.random() * (yrange.max - yrange.min + 1)) +
-          yrange.min;
-
+      while (i < Object.keys(api_data).length) {
+        var name = Object.keys(api_data)[i];
+        var data = this.arrangeData(Object.values(api_data)[i]);
         series.push({
+          name: name,
+          data: data,
+        });
+        i++;
+      }
+      return series;
+    },
+    arrangeData(data) {
+      var i = 0;
+      var serie = [];
+      while (i < Object.keys(data).length) {
+        var x = Object.keys(data)[i];
+        var y = Object.values(data)[i];
+        serie.push({
           x: x,
           y: y,
         });
         i++;
       }
-      return series;
+      return serie;
     },
   },
 };
