@@ -12,7 +12,13 @@
   <div class="container" v-else>
     <div class="row">
       <div class="col-12">
-        <HeatChart :api_data="fields" />
+        {{ fields.full_texts_count }} full_texts_count
+        {{ fields.ecli_count }} ecli_count
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <HeatChart :api_data="fields.docs_per_court_per_year" />
       </div>
     </div>
   </div>
@@ -33,7 +39,7 @@ export default {
   data() {
     return {
       env: {},
-      page_url: "http://ecli-api.tintamarre.be/api/v1/stats",
+      page_url: "https://api-ecli.openjustice.lltl.be/api/v1/statistics",
     };
   },
 };
