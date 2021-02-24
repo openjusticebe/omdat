@@ -6,7 +6,7 @@ import Document from "@/views/Document.vue";
 import Statistics from "@/views/Statistics.vue";
 import Search from "@/views/Search.vue";
 
-var base_title = "Omdat ::";
+var base_title = "Omdat :: ";
 
 const routes = [
   {
@@ -30,7 +30,7 @@ const routes = [
     name: "About",
     component: About,
     meta: {
-      title: base_title + " About"
+      title: base_title + "About"
     },
   },
   {
@@ -38,7 +38,7 @@ const routes = [
     name: "Court {{ court }}",
     component: Court,
     meta: {
-      title: base_title + " Court"
+      title: base_title + "Court"
     },
   },
 
@@ -48,7 +48,7 @@ const routes = [
     name: "Document",
     component: Document,
     meta: {
-      title: base_title + " Document"
+      title: base_title + "Document"
     },
   },
   {
@@ -56,7 +56,7 @@ const routes = [
     name: "Statistics",
     component: Statistics,
     meta: {
-      title: base_title + " Statistics"
+      title: base_title + "Statistics"
     },
   },
 
