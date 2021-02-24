@@ -2,7 +2,7 @@
   <div class="">
     <apexchart
       width="1000"
-      height="1500"
+      height="1000"
       type="heatmap"
       :options="chartOptions"
       :series="series"
@@ -22,13 +22,29 @@ export default {
         dataLabels: {
           enabled: false,
         },
-        colors: ["#2ab3a8"],
-
+        colors: [
+          "#F3B415",
+          "#F27036",
+          "#663F59",
+          "#6A6E94",
+          "#4E88B4",
+          "#00A7C6",
+          "#18D8D8",
+          "#A9D794",
+          "#46AF78",
+          "#A93F55",
+          "#8C5E58",
+          "#2176FF",
+          "#33A1FD",
+          "#7A918D",
+          "#BAFF29",
+        ],
         xaxis: {
           type: "Courts",
         },
+
         title: {
-          text: "HeatMap of court",
+          text: "Documents per court",
         },
       },
       series: this.arrangeSeries(this.api_data),
@@ -47,7 +63,7 @@ export default {
         });
         i++;
       }
-      return series;
+      return series.reverse();
     },
     arrangeData(data) {
       var i = 0;
