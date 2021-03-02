@@ -21,29 +21,50 @@
       </h5>
       <div class="card-body text-left">
         <div class="row">
-          <div class="col-md-8">
-            <dl
+          <div class="col-md-10">
+            <div
               v-for="(metadata, index) in fields.data.meta"
               :key="index"
               class="row"
             >
-              <dt class="col-sm-3">{{ metadata[0] ?? "" }}</dt>
-              <dd class="col-sm-9">{{ metadata[1] ?? "" }}</dd>
-            </dl>
+              <meta-data
+                :source="metadata"
+                v-if="
+                  metadata[0] != null &&
+                  metadata[1] != null &&
+                  metadata[0] != 'Raadplegingen:' &&
+                  metadata[0] != 'pdf' &&
+                  metadata[0] != 'fiche'
+                "
+              />
+              <div v-if="metadata[0] === 'fiche' && metadata[1] != null">
+                <h4>Resume</h4>
+                <blockquote class="blockquote mb-0">
+                  <p>
+                    {{ metadata[1] }}
+                  </p>
+                  <footer class="blockquote-footer text-right">
+                    {{ fields.data.court.name }} —
+                    <cite title="ECLI">{{ fields.data.ecli }}</cite>
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
 
             <div>
+              <hr />
+              <h3>Full text</h3>
               <vue3-markdown-it :source="fields.data.text" />
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-2">
             <div class="card" style="width: 8rem">
               <a :href="fields.data.court.ref">
                 <img
                   class="card-img-top"
-                  v-if="fields.data.court.logo_href"
                   :src="fields.data.court.logo_href"
-                  :alt="'Logo of ' + fields.data.court.name_fr"
+                  :alt="'Logo of ' + fields.data.court.name"
                   width="100"
                 />
               </a>
@@ -54,6 +75,21 @@
                     fields.data.court.court_href
                   }}</span>
                 </p>
+              </div>
+            </div>
+
+            <div
+              v-for="(metadata, index) in fields.data.meta"
+              :key="index"
+              class="row"
+            >
+              <div v-if="metadata[0] === 'pdf' && metadata[1] != null">
+                <a
+                  :href="'https://juportal.be' + metadata[1]"
+                  class="btn btn-success btn-sm"
+                  target="_blank"
+                  >Original document (PDF)</a
+                >
               </div>
             </div>
           </div>
