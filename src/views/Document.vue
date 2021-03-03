@@ -32,9 +32,11 @@
                 v-if="
                   metadata[0] != null &&
                   metadata[1] != null &&
+                  metadata[1] != '' &&
                   metadata[0] != 'Raadplegingen:' &&
                   metadata[0] != 'pdf' &&
-                  metadata[0] != 'fiche'
+                  metadata[0] != 'fiche' &&
+                  metadata[0] != 'Consultations:'
                 "
               />
               <div v-if="metadata[0] === 'fiche' && metadata[1] != null">
@@ -45,7 +47,9 @@
                   </p>
                   <footer class="blockquote-footer text-right">
                     {{ fields.data.court.name }} —
-                    <cite title="ECLI">{{ fields.data.ecli }}</cite>
+                    <cite title="ECLI">
+                      {{ fields.data.ecli }}
+                    </cite>
                   </footer>
                 </blockquote>
               </div>
@@ -54,7 +58,7 @@
             <div>
               <hr />
               <h3>Full text</h3>
-              <vue3-markdown-it :source="fields.data.text" />
+              <vue3-markdown-it :source="formatText(fields.data.text)" />
             </div>
           </div>
 
@@ -115,6 +119,13 @@ export default {
     return {
       env: null,
     };
+  },
+  methods: {
+    formatText(text) {
+      return text;
+      // let para = "1. ";
+      // return text.replace(para, "## " + para);
+    },
   },
   mounted() {
     this.env = process.env;

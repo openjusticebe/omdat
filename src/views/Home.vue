@@ -103,15 +103,13 @@ import getDataMixin from "../mixins/getDataMixin";
 export default {
   mixins: [getDataMixin],
 
-  props: {
-    page_url: String,
-  },
   mounted() {
     this.env = process.env;
   },
   methods: {},
   data() {
     return {
+      page_url: "https://api-ecli.openjustice.lltl.be/api/v1/ECLI/BE",
       env: {},
     };
   },
