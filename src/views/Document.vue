@@ -31,12 +31,13 @@
                 :source="metadata"
                 v-if="
                   metadata[0] != null &&
+                  metadata[0] != '' &&
                   metadata[1] != null &&
                   metadata[1] != '' &&
                   metadata[0] != 'Raadplegingen:' &&
+                  metadata[0] != 'Consultations:' &&
                   metadata[0] != 'pdf' &&
-                  metadata[0] != 'fiche' &&
-                  metadata[0] != 'Consultations:'
+                  metadata[0] != 'fiche'
                 "
               />
               <div v-if="metadata[0] === 'fiche' && metadata[1] != null">
@@ -59,6 +60,12 @@
               <hr />
               <h3>Full text</h3>
               <vue3-markdown-it :source="formatText(fields.data.text)" />
+
+              <hr />
+              <h3>Full text anonymised</h3>
+              <vue3-markdown-it
+                :source="formatText(fields.data.text_anonymized)"
+              />
             </div>
           </div>
 
