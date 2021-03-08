@@ -37,7 +37,8 @@
                   metadata[0] != 'Raadplegingen:' &&
                   metadata[0] != 'Consultations:' &&
                   metadata[0] != 'pdf' &&
-                  metadata[0] != 'fiche'
+                  metadata[0] != 'fiche' &&
+                  metadata[0] != 'Versie(s):'
                 "
               />
               <div v-if="metadata[0] === 'fiche' && metadata[1] != null">
@@ -58,14 +59,28 @@
 
             <div>
               <hr />
-              <h3>Full text</h3>
-              <vue3-markdown-it :source="formatText(fields.data.text)" />
-
-              <hr />
-              <h3>Full text anonymised</h3>
-              <vue3-markdown-it
-                :source="formatText(fields.data.text_anonymized)"
-              />
+              <div v-if="!anonymised_view">
+                <button
+                  class="btn btn-warning btn-sm float-right"
+                  @click="anonymised_view = !anonymised_view"
+                >
+                  👀 Full text view
+                </button>
+                <h3>Full text</h3>
+                <vue3-markdown-it :source="formatText(fields.data.text)" />
+              </div>
+              <div v-else>
+                <button
+                  class="btn btn-primary btn-sm float-right"
+                  @click="anonymised_view = !anonymised_view"
+                >
+                  👀 Anonymized view
+                </button>
+                <h3>Full text anonymized</h3>
+                <vue3-markdown-it
+                  :source="formatText(fields.data.text_anonymized)"
+                />
+              </div>
             </div>
           </div>
 
@@ -125,6 +140,7 @@ export default {
   data() {
     return {
       env: null,
+      anonymised_view: false,
     };
   },
   methods: {
