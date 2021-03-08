@@ -38,8 +38,8 @@
                   metadata[0] != 'Consultations:' &&
                   metadata[0] != 'pdf' &&
                   metadata[0] != 'fiche' &&
-                  metadata[0] != 'Versie(s):'
-                  metadata[0] != 'Version(s):'                
+                  metadata[0] != 'Versie(s):' &&
+                  metadata[0] != 'Version(s):'
                 "
               />
               <div v-if="metadata[0] === 'fiche' && metadata[1] != null">
