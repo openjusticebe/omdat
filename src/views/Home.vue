@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-md-6 offset-md-3 col-sm-12">
         <small>{{ query }}</small>
-        <search-input />
+        <search-input :query="null" />
       </div>
     </div>
     <div class="row" id="global_count">

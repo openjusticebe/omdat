@@ -28,15 +28,16 @@
 <script>
 export default {
   mounted() {},
-  data() {
-    return {
-      query: "",
-    };
+  props: {
+    query: String,
   },
 
   computed: {
     parseInput() {
-      return this.query.split(" ").join("+");
+      if (this.query) {
+        return this.query.split(" ").join("+");
+      }
+      return "";
     },
   },
 };

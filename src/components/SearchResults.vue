@@ -3,11 +3,15 @@
     <loading-animation />
   </div>
   <div v-else>
+    <small class="text-muted"
+      >{{ fields.hits.hits.length }} results {{ fields.took }} milliseconds
+    </small>
+
     <div v-if="fields.hits.total > 0">
       <ul
         v-for="(hit, index) in fields.hits.hits"
         :key="index"
-        class="text-left"
+        class="text-left list-unstyled"
       >
         <li>
           <h4>
