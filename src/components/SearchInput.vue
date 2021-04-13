@@ -1,5 +1,5 @@
 <template>
-  <form :action="'/search/' + parseInput" method="get">
+  <form :action="'/search/' + parsedInput" method="get">
     <div class="input-group">
       <input
         class="form-control"
@@ -18,7 +18,7 @@
   </form>
 
   <small v-if="query" class="form-text text-muted">
-    Search for <code>{{ parseInput }}</code></small
+    Search for <code>{{ parsedInput }}</code></small
   >
 </template>
 
@@ -33,7 +33,7 @@ export default {
   },
 
   computed: {
-    parseInput() {
+    parsedInput() {
       if (this.query) {
         return this.query.split(" ").join("+");
       }

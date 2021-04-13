@@ -21,27 +21,32 @@ $cyan: #6cb2eb;
 
 $light_blue: #f5f7fb;
 
+
 $brand-primary: #428BCA;
-$brand-success: #1ABC9C;
+$brand-success: #69b3b3;
 $brand-info: #5BC0DE;
 $brand-warning: #FFD195;
 $brand-danger: #C0392B;
 
+$brand-green: $brand-success;
+
+
 $primary: #428BCA;
-$success: #1ABC9C;
+$success: #69b3b3;
 $info: #5BC0DE;
 $warning: #FFD195;
 $danger: #C0392B;
 $default: #FFD195;
 
-$oj-purple: #5b397e; // purple OJ
-$oj-green: #2ab3a8; // green OJ
-$oj-black: #2c3e50;
+$oj-purple: #5d3985; // purple OJ
+$oj-green: #69b3b3; // green OJ
+$oj-black: #303131;
 
 $bg-warning: #FFD195;
 
 $primary: $blue;
 $secondary: $orange;
+
 
 #app {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
@@ -52,9 +57,13 @@ $secondary: $orange;
   background-color: white;
 }
 
-.top {
-  background-color: $light_blue;
-}
 
+.brand {
+  background-color: $oj-green;
+  padding: 20px;
+  border-bottom-left-radius: 550px 40px;
+  border-bottom-right-radius: 550px 40px;
+  background-image: url("../images/oj-background.png");
+}
 
 @import 'node_modules/bootstrap/scss/bootstrap';

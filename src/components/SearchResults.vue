@@ -26,7 +26,6 @@
         </li>
       </ul>
     </div>
-    <div v-else>Sorry. No result.</div>
   </div>
 </template>
 

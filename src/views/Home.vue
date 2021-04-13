@@ -1,12 +1,13 @@
 <template>
-  <section class="text-center top" style="padding-top: 200px">
-    <img
+  <section class="text-center brand" style="padding-top: 200px">
+    <h1 class="display-1 text-white">Omdat</h1>
+    <!-- <img
       src="../assets/images/omdat-by-oj.png"
       class="img-fluid"
       alt="Omdat Logo"
-    />
+    /> -->
     <p
-      class="lead text-muted font-weight-normal"
+      class="lead text-white font-weight-normal"
       v-html="env.VUE_APP_TAGLINE"
     ></p>
 
