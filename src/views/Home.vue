@@ -21,17 +21,18 @@
     </div>
     <div class="row" id="global_count">
       <div class="col-8 offset-2 small">
-        <div v-if="data_fetched">
+        <div v-if="data_fetched" class="white">
           <strong>{{ fields.data.count_documents }}</strong> documents gathered
           from <strong>{{ fields.data.count_courts }}</strong> courts
         </div>
       </div>
 
-      <div class="col-8 offset-2 small text-secondary">
+      <div class="col-8 offset-2 small white">
         <a
           href="https://twitter.com/OpenjusticeB"
           target="_blank"
           rel="noopener"
+          class="white"
           >Twitter</a
         >
         |
@@ -39,6 +40,7 @@
           href="https://eur-lex.europa.eu/content/help/faq/ecli.html"
           target="_blank"
           rel="noopener"
+          class="white"
           >ECLI official docs</a
         >
         |
@@ -46,6 +48,7 @@
           href="https://api-ecli.openjustice.lltl.be/api-docs.html"
           target="_blank"
           rel="noopener"
+          class="white"
           >API Doc</a
         >
       </div>
@@ -142,5 +145,9 @@ li {
 
 .bottom {
   background-color: #f7f7f7;
+}
+
+.white {
+  color: white;
 }
 </style>
