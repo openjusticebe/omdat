@@ -60,7 +60,7 @@
 
             <div>
               <hr />
-              <div v-if="!anonymised_view">
+              <div v-if="anonymised_view">
                 <button
                   class="btn btn-warning btn-sm float-right"
                   @click="anonymised_view = !anonymised_view"

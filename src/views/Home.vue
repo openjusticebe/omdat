@@ -28,29 +28,19 @@
       </div>
 
       <div class="col-8 offset-2 small text-white">
-        <a
-          href="https://twitter.com/OpenjusticeB"
-          target="_blank"
-          rel="noopener"
-          class="text-white"
-          >Twitter</a
-        >
+        <a href="https://twitter.com/OpenjusticeB" target="_blank">Twitter </a>
         |
         <a
           href="https://eur-lex.europa.eu/content/help/faq/ecli.html"
           target="_blank"
-          rel="noopener"
-          class="text-white"
-          >ECLI official docs</a
-        >
+          >ECLI official docs
+        </a>
         |
         <a
           href="https://api-ecli.openjustice.lltl.be/api-docs.html"
           target="_blank"
-          rel="noopener"
-          class="text-white"
-          >API Doc</a
-        >
+          >API Doc
+        </a>
       </div>
     </div>
   </section>
@@ -139,10 +129,6 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-.green a {
-  color: #079455;
-}
-
 .bottom {
   background-color: #f7f7f7;
 }
