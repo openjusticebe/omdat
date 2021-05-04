@@ -57,7 +57,14 @@
                 </blockquote>
               </div>
             </div>
-
+            <div class="row">
+              <dt class="col-sm-3 text-right">API link</dt>
+              <dd class="col-sm-9">
+                <a :href="fields.data.self_link" target="_blank">
+                  {{ fields.data.self_link }}
+                </a>
+              </dd>
+            </div>
             <div>
               <hr />
               <div v-if="anonymised_view">
@@ -65,7 +72,7 @@
                   class="btn btn-warning btn-sm float-right"
                   @click="anonymised_view = !anonymised_view"
                 >
-                  👀 Full text view
+                  Full text view
                 </button>
                 <h3>Full text</h3>
                 <vue3-markdown-it :source="formatText(fields.data.text)" />
@@ -75,7 +82,7 @@
                   class="btn btn-primary btn-sm float-right"
                   @click="anonymised_view = !anonymised_view"
                 >
-                  👀 Anonymized view
+                  Anonymized view
                 </button>
                 <h3>Full text anonymized</h3>
                 <vue3-markdown-it

@@ -1,5 +1,5 @@
 <template>
-  <form :action="'/search/' + parsedInput" method="get">
+  <form :action="'/search/' + parseInput" method="get">
     <div class="input-group">
       <input
         class="form-control"
@@ -18,8 +18,8 @@
   </form>
 
   <small v-if="query" class="form-text text-muted">
-    Search for <code>{{ parsedInput }}</code></small
-  >
+    Search for <code>{{ parseInput }}</code>
+  </small>
 </template>
 
 <style>
@@ -31,9 +31,14 @@ export default {
   props: {
     query: String,
   },
+  // data() {
+  //   return {
+  //     parseInput: String,
+  //   };
+  // },
 
   computed: {
-    parsedInput() {
+    parseInput() {
       if (this.query) {
         return this.query.split(" ").join("+");
       }
