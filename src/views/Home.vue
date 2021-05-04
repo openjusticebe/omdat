@@ -61,9 +61,12 @@
             :key="index"
             class="col-md-5 small"
           >
-            <a :href="field.ref" class="text-primary font-weight-bold">{{
-              field.ecli
-            }}</a>
+            <a
+              :href="field.ref"
+              class="text-primary font-weight-bold"
+              :alt="field.ecli"
+              >{{ field.ecli }}</a
+            >
             <small class="text-muted"> — {{ field.updated_at_diff }}</small>
           </li>
         </ul>
