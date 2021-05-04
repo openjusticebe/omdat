@@ -4,7 +4,7 @@
       <nav class="navbar navbar-expand-md navbar-light top">
         <div class="container">
           <a class="navbar-brand text-primary font-weight-bold" href="/">
-            <img src="./assets/images/oj.png" width="120" />
+            <img src="./assets/images/oj.png" width="120" alt="open justice logo"/>
           </a>
 
           <button
