@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-10 offset-1">
-      <search-input :query="$route.params.needle" />
+      <search-input />
     </div>
 
     <div class="col-10 offset-1">

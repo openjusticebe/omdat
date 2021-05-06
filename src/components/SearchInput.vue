@@ -28,15 +28,11 @@
 <script>
 export default {
   mounted() {},
-  props: {
-    query: String,
+  data() {
+    return {
+      query: "",
+    };
   },
-  // data() {
-  //   return {
-  //     parseInput: String,
-  //   };
-  // },
-
   computed: {
     parseInput() {
       if (this.query) {
