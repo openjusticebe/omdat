@@ -22,8 +22,9 @@
     <div class="row" id="global_count">
       <div class="col-8 offset-2 small">
         <div v-if="data_fetched" class="text-white">
-          <strong>{{ fields.data.count_documents }}</strong> documents gathered
-          from <strong>{{ fields.data.count_courts }}</strong> courts
+          <strong>{{ fields.data.count_documents }}</strong>
+          {{ $t("documents") }} {{ $t("gathered") }} {{ $t("from") }}
+          <strong>{{ fields.data.count_courts }}</strong> {{ $t("courts") }}
         </div>
       </div>
 

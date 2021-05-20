@@ -4,7 +4,11 @@
       <nav class="navbar navbar-expand-md navbar-light top">
         <div class="container">
           <a class="navbar-brand text-primary font-weight-bold" href="/">
-            <img src="./assets/images/oj.png" width="120" alt="open justice logo"/>
+            <img
+              src="./assets/images/oj.png"
+              width="120"
+              alt="open justice logo"
+            />
           </a>
 
           <button
@@ -23,7 +27,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link" href="/">🏠 Home </a>
+                <a class="nav-link" href="/">🏠 {{ $t("home") }} </a>
               </li>
             </ul>
 
@@ -35,7 +39,7 @@
                   _target="blank"
                   class="btn btn-default"
                 >
-                  📤 Upload a decision
+                  📤 {{ $t("upload_a_case_law") }}
                 </a>
               </li>
 
@@ -46,27 +50,8 @@
                 </a>
                 <a href="#" class="btn disabled">Register</a>
               </li> -->
-              <div class="btn-group">
-                <button
-                  type="button"
-                  class="btn btn-primary dropdown-toggle"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  en
-                </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item btn disabled small"
-                    ><strong>en</strong></a
-                  >
-                  <div class="dropdown-divider"></div>
+              <SwitchLocale />
 
-                  <a class="dropdown-item">fr</a>
-                  <a class="dropdown-item">nl</a>
-                  <a class="dropdown-item">de</a>
-                </div>
-              </div>
               <div class="col-xs-12">
                 <div class="console"></div>
               </div>

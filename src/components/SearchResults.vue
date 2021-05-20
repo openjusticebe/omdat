@@ -4,7 +4,7 @@
   </div>
   <div v-else>
     <small class="text-muted"
-      >{{ fields.hits.hits.length }} results {{ fields.took }} milliseconds
+      >{{ fields.hits.hits.length }} {{ $t("results") }} {{ fields.took }} ms
     </small>
 
     <div v-if="fields.hits.total > 0">

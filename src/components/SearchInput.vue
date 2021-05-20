@@ -11,14 +11,14 @@
 
       <div class="input-group-append">
         <button class="btn btn-primary" v-if="query" type="submit">
-          Search 🔎
+          {{ $t("search") }} 🔎
         </button>
       </div>
     </div>
   </form>
 
   <small v-if="query" class="form-text text-muted">
-    Search for <code>{{ parseInput }}</code>
+    {{ $t("search_for") }} <code>{{ parseInput }}</code>
   </small>
 </template>
 
@@ -27,7 +27,9 @@
 
 <script>
 export default {
-  mounted() {},
+  mounted() {
+    // console.log($route.params.needle);
+  },
   data() {
     return {
       query: "",

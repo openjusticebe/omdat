@@ -6,7 +6,7 @@
 
     <div class="col-10 offset-1">
       <h1>
-        🔍 Results
+        🔍 {{ $t("results") }}
         <small class="text-muted">{{ $route.params.needle }}</small>
       </h1>
 

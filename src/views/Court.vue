@@ -38,9 +38,9 @@
     <hr />
     <div class="row">
       <div class="col-md-2">
-        <h2>Year</h2>
+        <h2>{{ $t("year") }}</h2>
         <button class="small btn btn-sm btn-link" @click="reqParams.year = []">
-          [deselect all]
+          [ {{ $t("search_for") }}]
         </button>
         <div
           v-for="(item, index) in fields.data.docs_per_year"
@@ -66,9 +66,9 @@
           </label>
         </div>
 
-        <h2>Type</h2>
+        <h2>{{ $t("type") }}</h2>
         <button class="small btn btn-sm btn-link" @click="reqParams.type = []">
-          [deselect all]
+          [ {{ $t("search_for") }}]
         </button>
         <div
           v-for="(item, index) in fields.data.docs_per_type"
@@ -89,9 +89,9 @@
           </label>
         </div>
 
-        <h2>Lang</h2>
+        <h2>{{ $t("lang") }}</h2>
         <button class="small btn btn-sm btn-link" @click="reqParams.lang = []">
-          [deselect all]
+          [{{ $t("deselect_all") }}]
         </button>
         <div
           v-for="(item, index) in fields.data.docs_per_lang"
