@@ -40,7 +40,7 @@
       <div class="col-md-2">
         <h2>{{ $t("year") }}</h2>
         <button class="small btn btn-sm btn-link" @click="reqParams.year = []">
-          [ {{ $t("search_for") }}]
+          [ {{ $t("deselect_all") }}]
         </button>
         <div
           v-for="(item, index) in fields.data.docs_per_year"
@@ -68,7 +68,7 @@
 
         <h2>{{ $t("type") }}</h2>
         <button class="small btn btn-sm btn-link" @click="reqParams.type = []">
-          [ {{ $t("search_for") }}]
+          [ {{ $t("deselect_all") }}]
         </button>
         <div
           v-for="(item, index) in fields.data.docs_per_type"

@@ -4,27 +4,39 @@
     "upload_a_case_law": "Upload a case law",
     "search": "Search",
     "search_for": "Search for",
-
+    "year": "Year",
+    "type": "Type",
+    "lang": "Lang",
+    "deselect_all": "Deselect all",
   },
   "nl": {
     "home": "Home",
     "upload_a_case_law": "Upload een jurisprudentie",
     "search": "Zoek",
     "search_for": "Zoek voor",
-
+    "year": "Jaar",
+    "type": "Type",
+    "lang": "Taal",
+    "deselect_all": "Deselecteer alles",
   },
   "fr": {
     "home": "Accueil",
     "upload_a_case_law": "Déposer un jugement",
     "search": "Chercher",
     "search_for": "Chercher pour",
-
+    "year": "Année",
+    "type": "Type",
+    "lang": "Langue",
+    "deselect_all": "Déselectionner tout",
   },
   "de": {
-    "home": "Home",
+    "home": "Startseite",
     "upload_a_case_law": "Laden Sie eine Rechtsprechung hoch",
-    "search": "Search",
-    "search_for": "Search",
-
+    "search": "Suchen",
+    "search_for": "Suchen nach",
+    "year": "Jahr",
+    "type": "Type",
+    "lang": "Sprache",
+    "deselect_all": "Deselect all",
   }
 }

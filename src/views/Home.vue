@@ -79,14 +79,14 @@
         :key="index"
         class="col-md-4"
       >
-        <h4>{{ field.label }}</h4>
+        <h4>{{ getTrans("label", field) }}</h4>
 
         <span v-for="(court, index) in field.courts" :key="index">
           <template v-if="index > 0"> — </template>
 
-          <a :href="'BE/' + court.acronym" class="font-weight-bold">{{
-            court.name
-          }}</a>
+          <a :href="'BE/' + court.acronym" class="font-weight-bold">
+            {{ getTrans("name", court) }}</a
+          >
           <sup class="text-muted small"> ({{ court.count_total }}) </sup>
         </span>
       </div>
@@ -105,7 +105,35 @@ export default {
   mounted() {
     this.env = process.env;
   },
-  methods: {},
+  methods: {
+    getTrans(type, field) {
+      if (type == "label") {
+        switch (this.$root.$i18n.locale) {
+          case "fr":
+            return field.label_i18ns.label_fr;
+          case "nl":
+            return field.label_i18ns.label_nl;
+          case "de":
+            return field.label_i18ns.label_de;
+          default:
+            return field.label;
+        }
+      } else if (type == "name") {
+        switch (this.$root.$i18n.locale) {
+          case "fr":
+            return field.name_i18ns.name_fr;
+          case "nl":
+            return field.name_i18ns.name_nl;
+          case "de":
+            return field.name_i18ns.name_de;
+          default:
+            return field.name;
+        }
+      } else {
+        return null;
+      }
+    },
+  },
   data() {
     return {
       page_url: "https://api-ecli.openjustice.lltl.be/api/v1/ECLI/BE",

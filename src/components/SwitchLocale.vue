@@ -11,9 +11,6 @@
         {{ $i18n.locale }}
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item btn disabled small"
-          ><strong>{{ $i18n.locale }}</strong></a
-        >
         <div class="dropdown-divider"></div>
 
         <a
