@@ -24,7 +24,6 @@
     "recent_documents_title": "Recente documenten",
     "browse_courts_categories_title": "Blader door banen en categorieën",
     "enter_your_query": "Voer uw vraag in",
-
   },
   "fr": {
     "home": "Accueil",
@@ -36,7 +35,7 @@
     "lang": "Langue",
     "deselect_all": "Déselectionner tout",
     "recent_documents_title": "Documents récents",
-    "browse_courts_categories_title": "Parcourir courts and categories",
+    "browse_courts_categories_title": "Parcourir les cours, tribunaux et leurs catégories",
     "enter_your_query": "Entrez votre requête",
   },
   "de": {
@@ -51,6 +50,5 @@
     "recent_documents_title": "Aktuelles Dokument",
     "browse_courts_categories_title": "Durchsuchen Sie Gerichte und Kategorien",
     "enter_your_query": "Geben Sie Ihre Anfrage ein",
-
   }
 }
