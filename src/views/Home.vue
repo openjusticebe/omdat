@@ -53,7 +53,7 @@
   <div class="container" v-else>
     <div class="row">
       <div class="col-12">
-        <h3>📃 {{ fields.data.recent_documents.title }}</h3>
+        <h3>📃 {{ $t("recent_documents_title") }}</h3>
         <hr />
 
         <ul>
@@ -71,7 +71,7 @@
             <small class="text-muted"> — {{ field.updated_at_diff }}</small>
           </li>
         </ul>
-        <h3>🏢 {{ fields.data.court_categories.title }}</h3>
+        <h3>🏢 {{ $t("browse_courts_categories_title") }}</h3>
         <hr />
       </div>
       <div

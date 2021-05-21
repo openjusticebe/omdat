@@ -4,7 +4,7 @@
       <input
         class="form-control"
         type="text"
-        placeholder="Enter your query"
+        :placeholder="$t('enter_your_query')"
         aria-label="Search"
         v-model="query"
       />
