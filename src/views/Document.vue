@@ -43,7 +43,7 @@
                 "
               />
               <div v-if="metadata[0] === 'fiche' && metadata[1] != null">
-                <h4>Resume</h4>
+                <h4>{{ $t("resume") }}</h4>
                 <blockquote class="blockquote mb-0">
                   <p>
                     {{ metadata[1] }}
@@ -72,9 +72,9 @@
                   class="btn btn-warning btn-sm float-right"
                   @click="anonymised_view = !anonymised_view"
                 >
-                  Full text view
+                  {{ $t("full_text_view") }}
                 </button>
-                <h3>Full text</h3>
+                <h3>{{ $t("full_text") }}</h3>
                 <vue3-markdown-it :source="formatText(fields.data.text)" />
               </div>
               <div v-else>
@@ -82,9 +82,9 @@
                   class="btn btn-primary btn-sm float-right"
                   @click="anonymised_view = !anonymised_view"
                 >
-                  Anonymized view
+                  {{ $t("anonymized_view") }}
                 </button>
-                <h3>Full text anonymized</h3>
+                <h3>{{ $t("anonymized_view") }}</h3>
                 <vue3-markdown-it
                   :source="formatText(fields.data.text_anonymized)"
                 />
@@ -122,8 +122,9 @@
                   :href="'https://juportal.be' + metadata[1]"
                   class="btn btn-success btn-sm"
                   target="_blank"
-                  >Original document (PDF)</a
                 >
+                  {{ $t("original_document") }}
+                </a>
               </div>
             </div>
           </div>

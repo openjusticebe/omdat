@@ -11,9 +11,14 @@
     "recent_documents_title": "Recent documents",
     "browse_courts_categories_title": "Browse courts and categories",
     "enter_your_query": "Enter your query",
+    "original_document": "Original document (PDF)",
+    "anonymized_view": "Anonymized view",
+    "full_text": "Full text",
+    "full_text_view": "Full text view",
+    "resume": "Resume"
   },
   "nl": {
-    "home": "Home",
+    "home": "Startpagina",
     "upload_a_case_law": "Upload een jurisprudentie",
     "search": "Zoek",
     "search_for": "Zoek voor",
@@ -24,6 +29,11 @@
     "recent_documents_title": "Recente documenten",
     "browse_courts_categories_title": "Blader door banen en categorieën",
     "enter_your_query": "Voer uw vraag in",
+    "original_document": "Origineel document (PDF)",
+    "anonymized_view": "Geanonimiseerde tekst",
+    "full_text": "Hele tekst",
+    "full_text_view": "Hele tekst",
+    "resume": "Overzicht"
   },
   "fr": {
     "home": "Accueil",
@@ -37,6 +47,11 @@
     "recent_documents_title": "Documents récents",
     "browse_courts_categories_title": "Parcourir les cours, tribunaux et leurs catégories",
     "enter_your_query": "Entrez votre requête",
+    "original_document": "Document original (PDF)",
+    "anonymized_view": "Texte anonymisé",
+    "full_text": "Texte entier",
+    "full_text_view": "Texte entier",
+    "resume": "Résumé"
   },
   "de": {
     "home": "Startseite",
@@ -50,5 +65,10 @@
     "recent_documents_title": "Aktuelles Dokument",
     "browse_courts_categories_title": "Durchsuchen Sie Gerichte und Kategorien",
     "enter_your_query": "Geben Sie Ihre Anfrage ein",
+    "original_document": "Original dokumentieren (PDF)",
+    "anonymized_view": "Anonymisierter Text ",
+    "full_text": "Original dokumentieren ",
+    "full_text_view": "Original dokumentieren",
+    "resume": "Zusammenfassung"
   }
 }

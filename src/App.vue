@@ -35,8 +35,9 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <a
-                  href="https://outil.openjustice.be/"
-                  _target="blank"
+                  :href="
+                    'https://outil.openjustice.be/' + this.$root.$i18n.locale
+                  "
                   class="btn btn-default"
                 >
                   📤 {{ $t("upload_a_case_law") }}
