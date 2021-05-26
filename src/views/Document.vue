@@ -9,6 +9,19 @@
       {{ fields.data.court.name }}
       <em class="text-muted">({{ fields.data.lang }})</em>
     </h1>
+
+    <div class="row small text-muted">
+      <div class="col">
+        <ul class="list-unstyled">
+          <li v-for="(name, key) in fields.data.court.name_i18ns" :key="key">
+            <span class="text-uppercase"
+              >{{ key.replace("name_", "") }} :
+            </span>
+            {{ name }}
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="card">
       <h5 class="card-header text-right">
         <code>{{ fields.data.ecli }}</code>
