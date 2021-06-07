@@ -7,7 +7,7 @@
     ></p>
 
     <iframe
-      src="http://metabase.openjustice.lltl.be/public/dashboard/ec33c495-d2c6-4ae1-b89a-dfe982664a41"
+      src="https://metabase.openjustice.lltl.be/public/dashboard/ec33c495-d2c6-4ae1-b89a-dfe982664a41"
       frameborder="0"
       width="1200"
       height="2000"
