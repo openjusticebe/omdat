@@ -43,6 +43,9 @@
                   📤 {{ $t("upload_a_case_law") }}
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="/statistics" class="btn btn-default">📊 Stats</a>
+              </li>
 
               <!-- Authentication Links -->
               <!-- <li class="nav-item">
