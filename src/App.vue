@@ -44,7 +44,12 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/statistics" class="btn btn-default">📊 Stats</a>
+                <a
+                  href="https://openjustice.be/stats-publications-arrets-jugements/"
+                  target="_blank"
+                  class="btn btn-default"
+                  >📊 Stats</a
+                >
               </li>
 
               <!-- Authentication Links -->
