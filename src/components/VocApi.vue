@@ -5,7 +5,7 @@
       <div class="">
           <ul class="list-inline">
               <li v-for="(field, index) in fields.tree" :key="index" class="list-inline-item mx-3">
-                <a v-bind:href="`/nav/` + field.iri" class="font-weight-bold text-capitalize">{{ field.labels['fr'].toLowerCase() }}</a>
+                <a v-bind:href="`/nav/` + encodeURIComponent(field.iri)" class="font-weight-bold text-capitalize">{{ field.labels['fr'].toLowerCase() }}</a>
               </li>
            </ul>
         </div>
