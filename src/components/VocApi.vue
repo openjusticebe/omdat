@@ -1,8 +1,15 @@
 <template>
-  <h1>VocApi</h1>
-  <li v-for="(field, index) in fields.tree" :key="index" class="col-md-5 small">
-    {{ field }}
-  </li>
+  <div class="col-12">
+      <h3>🧭 {{ $t("arborescence_title") }}</h3>
+      <hr />
+      <div class="navbar">
+          <ul class="navbar-nav navbar-fill w-100">
+              <li v-for="(field, index) in fields.tree" :key="index" class="nav-item">
+                <a href="{{ field.iri }}" class="nav-link">{{ field.labels['fr'] }}</a>
+              </li>
+           </ul>
+        </div>
+    </div>
 </template>
 
 <script>

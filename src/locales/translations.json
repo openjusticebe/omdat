@@ -15,7 +15,8 @@
     "anonymized_view": "Anonymized view",
     "full_text": "Full text",
     "full_text_view": "Full text view",
-    "resume": "Resume"
+    "resume": "Resume",
+    "arborescence_title":"Thesaurus"
   },
   "nl": {
     "home": "Startpagina",
@@ -33,7 +34,8 @@
     "anonymized_view": "Geanonimiseerde tekst",
     "full_text": "Hele tekst",
     "full_text_view": "Hele tekst",
-    "resume": "Overzicht"
+    "resume": "Overzicht",
+    "arborescence_title":"Thesaurus"
   },
   "fr": {
     "home": "Accueil",
@@ -51,7 +53,8 @@
     "anonymized_view": "Texte anonymisé",
     "full_text": "Texte entier",
     "full_text_view": "Texte entier",
-    "resume": "Résumé"
+    "resume": "Résumé",
+    "arborescence_title":"Thesaurus"
   },
   "de": {
     "home": "Startseite",
@@ -69,6 +72,7 @@
     "anonymized_view": "Anonymisierter Text ",
     "full_text": "Original dokumentieren ",
     "full_text_view": "Original dokumentieren",
-    "resume": "Zusammenfassung"
+    "resume": "Zusammenfassung",
+    "arborescence_title":"Thesaurus"
   }
 }
