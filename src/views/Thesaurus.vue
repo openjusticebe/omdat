@@ -3,12 +3,18 @@
     <loading-animation />
   </div>
   <div v-else class="container text-left">
-    <h1>
-      <a href="">{{ current.labels['fr'] }}</a>
+    <h3>
+    <span v-if="top"><a v-bind:href="`/nav/` + encodeURIComponent(top.iri)" class="text-capitalize">{{ displayLabel(top) }}</a> ... </span>
+    <span v-if="parent"><a v-bind:href="`/nav/` + encodeURIComponent(parent.iri)" class="text-capitalize">{{ displayLabel(parent) }}</a></span>
+    </h3>
+
+    <h1 class="text-capitalize">
+      {{ displayLabel(current) }}
     </h1>
+    <a v-bind:href="current.iri" class="text-small text-muted">definition</a>
     <div class="">
-        <ul class="list-inline">
-            <li v-for="(field, index) in tree" :key="index" class="list-inline-item mx-3">
+        <ul class="list">
+            <li v-for="(field, index) in tree" :key="index" class="list-item mx-3">
               <a v-bind:href="`/nav/` + encodeURIComponent(field.iri)" class="font-weight-bold text-capitalize">{{ field.labels['fr'].toLowerCase() }}</a>
             </li>
          </ul>
@@ -24,6 +30,9 @@ export default {
   props: {
   },
   methods: {
+    displayLabel(obj) {
+        return obj.labels['fr'].toLowerCase();
+    },
     updateReqParams() {
       if (this.reqParams.length === 0) {
         this.reqParams = {
