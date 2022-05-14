@@ -14,7 +14,7 @@ export default {
         errors: {},
         data_fetched: false,
         loaded: true,
-        collection: 'omdat',
+        collection: process.env.VUE_APP_VOC_COLLECTION,
       }
     },
 

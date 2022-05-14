@@ -52,7 +52,7 @@
 
   <div class="container" v-else>
     <div class="row">
-      <voc-api page_url="https://voc.openjustice.lltl.be/nav/prout"  class="col-12"/>
+      <voc-api page_url="https://voc.openjustice.lltl.be/nav/prout"  top="" class="col-12"/>
 
       <div class="col-12">
         <h3>📃 {{ $t("recent_documents_title") }}</h3>
