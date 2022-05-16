@@ -10,14 +10,8 @@
           class="list-inline-item mx-3"
         >
           <a
-            v-if="field.iri == active"
             :href="`/nav/` + encodeURIComponent(field.iri)"
-            class="font-weight-bold text-capitalize bg-primary text-light"
-            >{{ field.labels["fr"].toLowerCase() }}</a
-          >
-          <a
-            v-else
-            :href="`/nav/` + encodeURIComponent(field.iri)"
+            :class="{ 'bg-primary text-light': field.iri == active }"
             class="font-weight-bold text-capitalize"
             >{{ field.labels["fr"].toLowerCase() }}</a
           >
