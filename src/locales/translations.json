@@ -16,7 +16,7 @@
     "full_text": "Full text",
     "full_text_view": "Full text view",
     "resume": "Resume",
-    "arborescence_title":"Thesaurus"
+    "thesaurus_title":"Thesaurus"
   },
   "nl": {
     "home": "Startpagina",
@@ -35,7 +35,7 @@
     "full_text": "Hele tekst",
     "full_text_view": "Hele tekst",
     "resume": "Overzicht",
-    "arborescence_title":"Thesaurus"
+    "thesaurus_title":"Thesaurus"
   },
   "fr": {
     "home": "Accueil",
@@ -54,7 +54,7 @@
     "full_text": "Texte entier",
     "full_text_view": "Texte entier",
     "resume": "Résumé",
-    "arborescence_title":"Thesaurus"
+    "thesaurus_title":"Thesaurus"
   },
   "de": {
     "home": "Startseite",
@@ -73,6 +73,6 @@
     "full_text": "Original dokumentieren ",
     "full_text_view": "Original dokumentieren",
     "resume": "Zusammenfassung",
-    "arborescence_title":"Thesaurus"
+    "thesaurus_title":"Thesaurus"
   }
 }
