@@ -1,16 +1,23 @@
 <template>
-  <div v-if="!data_fetched">loading ...</div>
-  <div class="col-12" v-else>
-    <h3>📔 Voc Api</h3>
+  <div class="col-12 mt-3">
+    <h3>🧭 {{ $t("thesaurus_title") }}</h3>
     <hr />
-    <span
-      v-for="(field, index) in fields.tree"
-      :key="index"
-      class="col-md-5 small"
-    >
-      {{ field.labels.fr
-      }}<sup><a :href="field.iri" target="_blank">⚓︎</a></sup>
-    </span>
+    <div class="">
+      <ul class="list-inline">
+        <li
+          v-for="(field, index) in fields.tree"
+          :key="index"
+          class="list-inline-item mx-3"
+        >
+          <a
+            :href="`/nav/` + encodeURIComponent(field.iri)"
+            :class="{ 'bg-primary text-light': field.iri == active }"
+            class="font-weight-bold text-capitalize"
+            >{{ field.labels["fr"].toLowerCase() }}</a
+          >
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
