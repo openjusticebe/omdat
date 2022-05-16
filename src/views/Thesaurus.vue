@@ -25,6 +25,14 @@
             </li>
          </ul>
     </div>
+    <div>
+        <ul>
+            <li v-for="(field, index) in documents" :key="index" class="list-inline-item mx-3">
+            <a :href="'/'+docLink(field)">{{field}}</a>
+            </li>
+        </ul>
+    </div>
+
   </div>
 </template>
 <script>
@@ -38,6 +46,9 @@ export default {
   methods: {
     displayLabel(obj) {
         return obj.labels['fr'].toLowerCase();
+    },
+    docLink(s) {
+        return s.substr(s.indexOf(':') + 1).replaceAll(':','/')
     },
     updateReqParams() {
       if (this.reqParams.length === 0) {
