@@ -69,7 +69,6 @@ export default {
   props: {},
   methods: {
     displayLabel(obj) {
-<<<<<<< HEAD
         return obj.labels['fr'].toLowerCase();
     },
     docLink(s) {
@@ -83,9 +82,6 @@ export default {
           lang: this.fields.data.docs_per_lang.map((a) => a.lang),
         };
       }
-=======
-      return obj.labels["fr"].toLowerCase();
->>>>>>> 7466edb7f6d7bcefd91347b8a0dd6334a55aec62
     },
   },
 };
