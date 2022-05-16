@@ -38,7 +38,7 @@
     <h1 class="text-capitalize">
       {{ displayLabel(current) }}
     </h1>
-    <a :href="current.iri" class="text-small text-muted">definition</a>
+    <a :href="current.iri" class="text-small text-muted">Definition</a>
     <div class="col-12 text-left d-flex justify-content-center">
       <ul class="list col-5">
         <li v-for="(field, index) in tree" :key="index" class="list-item mx-3">
@@ -62,15 +62,6 @@ export default {
   methods: {
     displayLabel(obj) {
       return obj.labels["fr"].toLowerCase();
-    },
-    updateReqParams() {
-      if (this.reqParams.length === 0) {
-        this.reqParams = {
-          year: this.fields.data.docs_per_year.map((a) => a.year),
-          type: this.fields.data.docs_per_type.map((a) => a.type),
-          lang: this.fields.data.docs_per_lang.map((a) => a.lang),
-        };
-      }
     },
   },
 };
