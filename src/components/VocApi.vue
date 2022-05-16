@@ -28,6 +28,7 @@ export default {
   mixins: [getDataMixin],
   props: {
     page_url: Array,
+    active: String,
   },
   methods: {},
 };

@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "@/views/Home.vue";
 import About from "@/views/About.vue";
 import Court from "@/views/Court.vue";
+import Thesaurus from "@/views/Thesaurus.vue";
 import Document from "@/views/Document.vue";
 import Statistics from "@/views/Statistics.vue";
 import Search from "@/views/Search.vue";
@@ -31,6 +32,15 @@ const routes = [
     component: About,
     meta: {
       title: base_title + "About"
+    },
+  },
+  {
+    path: "/nav/:subject",
+    name: "Navigate {{subject}}",
+    component: Thesaurus,
+    props: true,
+    meta: {
+        title: base_title + "Navigate"
     },
   },
   {

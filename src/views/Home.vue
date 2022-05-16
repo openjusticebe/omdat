@@ -52,8 +52,6 @@
 
   <div class="container" v-else>
     <div class="row">
-      <voc-api page_url="https://voc.openjustice.lltl.be/nav/prout" />
-
       <div class="col-12">
         <h3>📃 {{ $t("recent_documents_title") }}</h3>
         <hr />
@@ -73,6 +71,13 @@
             <small class="text-muted"> — {{ field.updated_at_diff }}</small>
           </li>
         </ul>
+
+        <voc-api
+          page_url="https://voc.openjustice.lltl.be/nav/prout"
+          top=""
+          class="col-12"
+        />
+
         <h3>🏢 {{ $t("browse_courts_categories_title") }}</h3>
         <hr />
       </div>
